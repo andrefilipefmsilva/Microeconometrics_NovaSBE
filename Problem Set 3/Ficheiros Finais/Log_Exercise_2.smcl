@@ -1,0 +1,1099 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 3\Log_Exercise_2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 3 May 2020, 18:14:19
+
+{com}. do "C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 3\Exercise_2.do"
+{txt}
+{com}. set more off
+{txt}
+{com}. 
+. ******EXERCISE 2.1***********
+. asdoc summ, by(treat), save(summary.doc), replace
+
+{txt}Summary statistics: N, mean, sd, min, max
+  by categories of: __000000 (treat)
+
+{ralign 8:__000000} {...}
+{c |}{...}
+   cluster        hh        id       sex       age   fhere94  falive94   mhere94  malive94  bothf~94
+{hline 9}{c +}{hline 100}
+{ralign 8:0} {...}
+{c |}{...}
+ {res}      953       953       953       953       953       757       855       717       840       686
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 27.47534  10.12277  4.303253  .4428122  24.67996  .2615588  .5450292  .3138075  .7071429  .2142857
+{txt}{space 8} {...}
+{c |}{...}
+ {res}  12.8399  6.741212  3.529492  .4969796  9.704207  .4397741  .4982597  .4643631  .4553446  .4106253
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        4         1         1         0        15         0         0         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       51        44        35         1        50         1         1         1         1         1
+{txt}{hline 9}{c +}{hline 100}
+{ralign 8:1} {...}
+{c |}{...}
+ {res}      246       246       246       246       246       193       211       178       201       169
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 21.65854  10.49187  4.296748  .4918699   24.1748  .2331606  .5118483  .3820225  .7164179  .1775148
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 19.32148  5.983475  3.043452  .5009531  9.324859  .4239434  .5010483  .4872526  .4518618  .3832393
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        1         1         1         0        15         0         0         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       50        26        18         1        50         1         1         1         1         1
+{txt}{hline 9}{c +}{hline 100}
+{ralign 8:Total} {...}
+{c |}{...}
+ {res}     1199      1199      1199      1199      1199       950      1066       895      1041       855
+{txt}{space 8} {...}
+{c |}{...}
+ {res}  26.2819   10.1985  4.301918  .4528774  24.57631  .2557895  .5384615  .3273743  .7089337  .2070175
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 14.59036  6.592146  3.434178  .4979822  9.625924  .4365339  .4987525  .4695175  .4544723  .4054054
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        1         1         1         0        15         0         0         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       51        44        35         1        50         1         1         1         1         1
+{txt}{hline 9}{c BT}{hline 100}
+
+{ralign 8:__000000} {...}
+{c |}{...}
+      educ   primnum  secschol  distschl  distsc~m  num2sc~s    public   private  motoroad  roadqu~y
+{hline 9}{c +}{hline 100}
+{ralign 8:0} {...}
+{c |}{...}
+ {res}      873       953       953       953       953       926       926       926       953       953
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 5.917526   1.23085  1.946485  20.05467  .2570829  1.242981  .6922246  .7095032  .9496327   .544596
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 2.466301  .4215979  .2251767  20.46226   .437255   .632737  .4618225   .454237  .2188165  .4982687
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         1         1        .1         0         1         0         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       20         2         2        80         1         3         1         1         1         1
+{txt}{hline 9}{c +}{hline 100}
+{ralign 8:1} {...}
+{c |}{...}
+ {res}      236       246       246       246       246       246       246       246       246       246
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 6.491525  1.577236  1.780488  2.336992         1         1  .6219512  .7113821         1  .5650407
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 2.187958   .803138    .41476  1.601343         0         0  .4858885  .4540436         0  .4967624
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         1         1        .1         1         1         0         0         1         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       17         3         2         5         1         1         1         1         1         1
+{txt}{hline 9}{c +}{hline 100}
+{ralign 8:Total} {...}
+{c |}{...}
+ {res}     1109      1199      1199      1199      1199      1172      1172      1172      1199      1199
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 6.039675  1.301918  1.912427  16.41952  .4095079   1.19198  .6774744  .7098976  .9599666  .5487907
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 2.420254  .5410569  .2827908  19.60831  .4919482  .5710079  .4676424  .4540032  .1961193  .4978214
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         1         1        .1         0         1         0         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       20         3         2        80         1         3         1         1         1         1
+{txt}{hline 9}{c BT}{hline 100}
+
+{ralign 8:__000000} {...}
+{c |}{...}
+  electric  pipwater       bar  distca~l   primary   ocohort   ycohort     treat     schl2  ycoho~at
+{hline 9}{c +}{hline 100}
+{ralign 8:0} {...}
+{c |}{...}
+ {res}      953       953       953       953       953       953       953       953       953       953
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .2402938  .1867786  .6222455  71.13905  .6789087  .2759706  .7240294         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .4274862  .3899383  .4850803  73.96054  .4671409  .4472368  .4472368         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0         0         0         0         0         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        1         1         1    217.79         1         1         1         0         0         0
+{txt}{hline 9}{c +}{hline 100}
+{ralign 8:1} {...}
+{c |}{...}
+ {res}      246       246       246       246       246       246       246       246       246       246
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .3902439   .300813  .5569106  50.95829  .7804878  .2560976  .7439024         1  .7113821  .7439024
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .4887994  .4595465  .4977634  28.10944    .41476  .4373662  .4373662         0  .4540436  .4373662
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0     12.49         0         0         0         1         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        1         1         1     93.78         1         1         1         1         1         1
+{txt}{hline 9}{c +}{hline 100}
+{ralign 8:Total} {...}
+{c |}{...}
+ {res}     1199      1199      1199      1199      1199      1199      1199      1199      1199      1199
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .2710592  .2101751  .6088407  66.99854  .6997498  .2718932  .7281068   .205171   .145955  .1526272
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .4446921  .4076029  .4882136   67.6385   .458558  .4451208  .4451208   .403995  .3532084  .3597778
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0         0         0         0         0         0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        1         1         1    217.79         1         1         1         1         1         1
+{txt}{hline 9}{c BT}{hline 100}
+
+{ralign 8:__000000} {...}
+{c |}{...}
+  ycohor~l  ycohor~2  ocoho~at
+{hline 9}{c +}{hline 30}
+{ralign 8:0} {...}
+{c |}{...}
+ {res}      953       953       953
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0
+{txt}{hline 9}{c +}{hline 30}
+{ralign 8:1} {...}
+{c |}{...}
+ {res}      246       246       246
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .4878049  .5284553  .2560976
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .5008703  .5002074  .4373662
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        1         1         1
+{txt}{hline 9}{c +}{hline 30}
+{ralign 8:Total} {...}
+{c |}{...}
+ {res}     1199      1199      1199
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .1000834  .1084237  .0525438
+{txt}{space 8} {...}
+{c |}{...}
+ {res} .3002364  .3110445   .223214
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        0         0         0
+{txt}{space 8} {...}
+{c |}{...}
+ {res}        1         1         1
+{txt}{hline 9}{c BT}{hline 30}
+{res}{txt}(note: file summary.doc not found)
+{res}Click to Open File:  {browse "summary.doc"}
+{txt}
+{com}. //Here we are presenting summary statistics, seperated between control and treatment group
+. 
+. 
+. asdoc ttest age, by(treat)  save(age.doc), replace
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    953{col 22} 24.67996{col 34} .3143501{col 46} 9.704207{col 58} 24.06306{col 70} 25.29686
+       {txt}1 {c |}{res}{col 12}    246{col 22}  24.1748{col 34} .5945313{col 46} 9.324859{col 58} 23.00375{col 70} 25.34584
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  1,199{col 22} 24.57631{col 34} .2779923{col 46} 9.625924{col 58} 24.03091{col 70} 25.12172
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .5051613{col 34} .6885281{col 58} -.845695{col 70} 1.856018
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res}  0.7337
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    1197
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.7684         {txt}Pr(|T| > |t|) = {res}0.4633          {txt}Pr(T > t) = {res}0.2316
+
+{txt}{p 20 20 2}Two-sample t test with equal variances{p_end}
+
+{space 0}{hline 23}{c  TT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 22:}{space 1}{c |}{space 1}{ralign 9:obs1}{space 1}{space 1}{ralign 9:obs2}{space 1}{space 1}{ralign 9:Mean1}{space 1}{space 1}{ralign 9:Mean2}{space 1}{space 1}{ralign 9:dif}{space 1}{space 1}{ralign 9:St_Err}{space 1}{space 1}{ralign 9:t_value}{space 1}{space 1}{ralign 9:p_value}{space 1}
+{space 0}{hline 23}{c   +}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{res:{lalign 23:age by treat}}{c |}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}
+{space 0}{space 0}{ralign 22:0 1}{space 1}{c |}{space 1}{ralign 9:{res:{sf:      953}}}{space 1}{space 1}{ralign 9:{res:{sf:      246}}}{space 1}{space 1}{ralign 9:{res:{sf:    24.68}}}{space 1}{space 1}{ralign 9:{res:{sf:   24.175}}}{space 1}{space 1}{ralign 9:{res:{sf:     .505}}}{space 1}{space 1}{ralign 9:{res:{sf:    .6885}}}{space 1}{space 1}{ralign 9:{res:{sf:      .75}}}{space 1}{space 1}{ralign 9:{res:{sf:    .4635}}}{space 1}
+{space 0}{hline 23}{c  BT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{res}{txt}(note: file age.doc not found)
+Click to Open File:  {browse "age.doc"}
+
+{com}. asdoc ttest educ, by(treat) save(educ.doc), replace
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    873{col 22} 5.917526{col 34} .0834716{col 46} 2.466301{col 58} 5.753697{col 70} 6.081355
+       {txt}1 {c |}{res}{col 12}    236{col 22} 6.491525{col 34}  .142424{col 46} 2.187958{col 58} 6.210935{col 70} 6.772116
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  1,109{col 22} 6.039675{col 34} .0726767{col 46} 2.420254{col 58} 5.897076{col 70} 6.182275
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.5739997{col 34} .1768081{col 58}-.9209164{col 70}-.2270829
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -3.2465
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    1107
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0006         {txt}Pr(|T| > |t|) = {res}0.0012          {txt}Pr(T > t) = {res}0.9994
+
+{txt}{p 20 20 2}Two-sample t test with equal variances{p_end}
+
+{space 0}{hline 23}{c  TT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 22:}{space 1}{c |}{space 1}{ralign 9:obs1}{space 1}{space 1}{ralign 9:obs2}{space 1}{space 1}{ralign 9:Mean1}{space 1}{space 1}{ralign 9:Mean2}{space 1}{space 1}{ralign 9:dif}{space 1}{space 1}{ralign 9:St_Err}{space 1}{space 1}{ralign 9:t_value}{space 1}{space 1}{ralign 9:p_value}{space 1}
+{space 0}{hline 23}{c   +}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{res:{lalign 23:educ by treat}}{c |}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}
+{space 0}{space 0}{ralign 22:0 1}{space 1}{c |}{space 1}{ralign 9:{res:{sf:      873}}}{space 1}{space 1}{ralign 9:{res:{sf:      236}}}{space 1}{space 1}{ralign 9:{res:{sf:   5.9175}}}{space 1}{space 1}{ralign 9:{res:{sf:   6.4915}}}{space 1}{space 1}{ralign 9:{res:{sf:    -.574}}}{space 1}{space 1}{ralign 9:{res:{sf:     .177}}}{space 1}{space 1}{ralign 9:{res:{sf:    -3.25}}}{space 1}{space 1}{ralign 9:{res:{sf:     .001}}}{space 1}
+{space 0}{hline 23}{c  BT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{res}{txt}(note: file educ.doc not found)
+Click to Open File:  {browse "educ.doc"}
+
+{com}. asdoc ttest sex, by(treat) save(gender.doc), replace
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    953{col 22} .4428122{col 34} .0160987{col 46} .4969796{col 58}  .411219{col 70} .4744053
+       {txt}1 {c |}{res}{col 12}    246{col 22} .4918699{col 34} .0319396{col 46} .5009531{col 58} .4289587{col 70} .5547812
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  1,199{col 22} .4528774{col 34} .0143815{col 46} .4979822{col 58} .4246617{col 70} .4810931
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0490577{col 34} .0355997{col 58}-.1189025{col 70}  .020787
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -1.3780
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    1197
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0842         {txt}Pr(|T| > |t|) = {res}0.1684          {txt}Pr(T > t) = {res}0.9158
+
+{txt}{p 20 20 2}Two-sample t test with equal variances{p_end}
+
+{space 0}{hline 23}{c  TT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 22:}{space 1}{c |}{space 1}{ralign 9:obs1}{space 1}{space 1}{ralign 9:obs2}{space 1}{space 1}{ralign 9:Mean1}{space 1}{space 1}{ralign 9:Mean2}{space 1}{space 1}{ralign 9:dif}{space 1}{space 1}{ralign 9:St_Err}{space 1}{space 1}{ralign 9:t_value}{space 1}{space 1}{ralign 9:p_value}{space 1}
+{space 0}{hline 23}{c   +}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{res:{lalign 23:sex by treat}}{c |}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}
+{space 0}{space 0}{ralign 22:0 1}{space 1}{c |}{space 1}{ralign 9:{res:{sf:      953}}}{space 1}{space 1}{ralign 9:{res:{sf:      246}}}{space 1}{space 1}{ralign 9:{res:{sf:     .443}}}{space 1}{space 1}{ralign 9:{res:{sf:     .492}}}{space 1}{space 1}{ralign 9:{res:{sf:    -.049}}}{space 1}{space 1}{ralign 9:{res:{sf:    .0355}}}{space 1}{space 1}{ralign 9:{res:{sf:     -1.4}}}{space 1}{space 1}{ralign 9:{res:{sf:    .1685}}}{space 1}
+{space 0}{hline 23}{c  BT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{res}{txt}(note: file gender.doc not found)
+Click to Open File:  {browse "gender.doc"}
+
+{com}. //Here we are testing whether there are significant differences between treatment 
+. //and control groups for the age, educ and gender characteristics.
+. 
+. ****EXERCISE 2.2*****
+. //Due to the suspect  of clusters in communities, we will do both the normal ttests and cluster-adjusted ttests
+. 
+. by cluster: summ electric pipwater distcapital
+
+{txt}{hline}
+-> cluster = 1
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         13           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         13           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         13       12.49           0      12.49      12.49
+
+{txt}{hline}
+-> cluster = 2
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         25           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         25           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         25       18.83           0      18.83      18.83
+
+{txt}{hline}
+-> cluster = 3
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         25           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         25           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         25       38.37           0      38.37      38.37
+
+{txt}{hline}
+-> cluster = 4
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         26           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         26           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         26       17.37           0      17.37      17.37
+
+{txt}{hline}
+-> cluster = 5
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         15           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         15           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         15       15.32           0      15.32      15.32
+
+{txt}{hline}
+-> cluster = 6
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         25           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         25           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         25       24.61           0      24.61      24.61
+
+{txt}{hline}
+-> cluster = 7
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         31           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         31           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         31       10.85           0      10.85      10.85
+
+{txt}{hline}
+-> cluster = 8
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         19           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         19           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         19       46.49           0      46.49      46.49
+
+{txt}{hline}
+-> cluster = 9
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         25           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         25           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         25       26.21           0      26.21      26.21
+
+{txt}{hline}
+-> cluster = 10
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         21           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         21           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         21       47.97           0      47.97      47.97
+
+{txt}{hline}
+-> cluster = 11
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         27           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         27           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         27       31.71    3.62e-15      31.71      31.71
+
+{txt}{hline}
+-> cluster = 12
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         21           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         21           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         21       35.01           0      35.01      35.01
+
+{txt}{hline}
+-> cluster = 13
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         27           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         27           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         27        57.6           0       57.6       57.6
+
+{txt}{hline}
+-> cluster = 14
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         20           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         20           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         20       75.52           0      75.52      75.52
+
+{txt}{hline}
+-> cluster = 15
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         28           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         28           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         28        35.1           0       35.1       35.1
+
+{txt}{hline}
+-> cluster = 16
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         19           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         19           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         19       41.83           0      41.83      41.83
+
+{txt}{hline}
+-> cluster = 17
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         24           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         24           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         24       43.51           0      43.51      43.51
+
+{txt}{hline}
+-> cluster = 18
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         17           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         17           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         17       31.95           0      31.95      31.95
+
+{txt}{hline}
+-> cluster = 19
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         20           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         20           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         20       54.77           0      54.77      54.77
+
+{txt}{hline}
+-> cluster = 20
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         17           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         17           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         17       31.53           0      31.53      31.53
+
+{txt}{hline}
+-> cluster = 21
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         19           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         19           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         19       36.74           0      36.74      36.74
+
+{txt}{hline}
+-> cluster = 22
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         28           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         28           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         28       32.48           0      32.48      32.48
+
+{txt}{hline}
+-> cluster = 23
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         24           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         24           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         24       44.61    7.26e-15      44.61      44.61
+
+{txt}{hline}
+-> cluster = 24
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         31           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         31           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         31       79.74           0      79.74      79.74
+
+{txt}{hline}
+-> cluster = 25
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         29           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         29           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         29       93.78           0      93.78      93.78
+
+{txt}{hline}
+-> cluster = 26
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         38           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         38           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         38      112.11    1.44e-14     112.11     112.11
+
+{txt}{hline}
+-> cluster = 27
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         21           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         21           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         21      211.64           0     211.64     211.64
+
+{txt}{hline}
+-> cluster = 28
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         25           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         25           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         25      185.02           0     185.02     185.02
+
+{txt}{hline}
+-> cluster = 29
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         16           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         16           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         16       193.4           0      193.4      193.4
+
+{txt}{hline}
+-> cluster = 30
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         24           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         24           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         24      217.79           0     217.79     217.79
+
+{txt}{hline}
+-> cluster = 31
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         19           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         19           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         19      190.29           0     190.29     190.29
+
+{txt}{hline}
+-> cluster = 32
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         35           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         35           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         35      184.86           0     184.86     184.86
+
+{txt}{hline}
+-> cluster = 33
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         20           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         20           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         20      187.85           0     187.85     187.85
+
+{txt}{hline}
+-> cluster = 34
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         26           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         26           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         26      186.14           0     186.14     186.14
+
+{txt}{hline}
+-> cluster = 35
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         29           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         29           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         29      183.62           0     183.62     183.62
+
+{txt}{hline}
+-> cluster = 36
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         18           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         18           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         18       189.7           0      189.7      189.7
+
+{txt}{hline}
+-> cluster = 37
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         23           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         23           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         23        3.11           0       3.11       3.11
+
+{txt}{hline}
+-> cluster = 38
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         23           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         23           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         23        1.27           0       1.27       1.27
+
+{txt}{hline}
+-> cluster = 39
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         26           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         26           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         26         2.4           0        2.4        2.4
+
+{txt}{hline}
+-> cluster = 40
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         28           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         28           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         28        4.97           0       4.97       4.97
+
+{txt}{hline}
+-> cluster = 41
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         30           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         30           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         30         1.2           0        1.2        1.2
+
+{txt}{hline}
+-> cluster = 42
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         25           0           0          0          0
+{txt}{space 4}pipwater {c |}{res}         25           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         25         2.8    4.53e-16        2.8        2.8
+
+{txt}{hline}
+-> cluster = 43
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         26           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         26           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         26        3.05           0       3.05       3.05
+
+{txt}{hline}
+-> cluster = 44
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}          7           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}          7           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}          7           0           0          0          0
+
+{txt}{hline}
+-> cluster = 45
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         14           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         14           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         14           0           0          0          0
+
+{txt}{hline}
+-> cluster = 46
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         20           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         20           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         20        1.68    2.28e-16       1.68       1.68
+
+{txt}{hline}
+-> cluster = 47
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         23           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         23           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         23        1.68           0       1.68       1.68
+
+{txt}{hline}
+-> cluster = 48
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         16           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         16           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         16       59.74           0      59.74      59.74
+
+{txt}{hline}
+-> cluster = 49
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         22           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         22           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         22       76.54           0      76.54      76.54
+
+{txt}{hline}
+-> cluster = 50
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         49           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         49           1           0          1          1
+{txt}{space 1}distcapital {c |}{res}         49       78.69           0      78.69      78.69
+
+{txt}{hline}
+-> cluster = 51
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}electric {c |}{res}         20           1           0          1          1
+{txt}{space 4}pipwater {c |}{res}         20           0           0          0          0
+{txt}{space 1}distcapital {c |}{res}         20       45.41           0      45.41      45.41
+
+{txt}
+{com}. 
+. //Cluster-adjusted t-tests
+. *ssc install cltest
+. clttest electric, by(treat) cluster(cluster)
+
+{txt} t-test adjusted for clustering
+{res} electric{txt} by {res}treat{txt}, clustered by {res}cluster
+{txt} ------------------------------------------------------------------------
+  Intra-cluster correlation{col 37}= {res}          1.0000
+{txt} ------------------------------------------------------------------------
+{col 15}N    Clusts    Mean           SE{col 60}95 % CI
+ treat=0{res}{col 11}   953{col 22}41{col 28}  0.2403{col 40}  0.0725{txt}{col 55}[{res}  0.0938{txt},{res}  0.3868{txt}]
+ treat=1{res}{col 11}   246{col 22}10{col 28}  0.3902{col 40}  0.1524{txt}{col 55}[{res}  0.0454{txt},{res}  0.7351{txt}]
+ ------------------------------------------------------------------------
+ Combined {res}{col 11}  1199{col 22}10{col 28}  0.2711{col 40}  0.0656{txt}{col 55}[{res}  0.1393{txt},{res}  0.4028{txt}]
+ ------------------------------------------------------------------------
+ Diff(0-1){res}{col 11}  1199{col 22}51{txt}{col 28}{res} -0.1500{txt}{col 40}{res}  0.1688{txt}{col 55}[{res} -0.4892{txt},{res}  0.1893{txt}]
+
+ Degrees freedom:    {res}49
+
+{txt}                    Ho: mean(-) = mean(diff) = 0
+
+  Ha: mean(diff) < 0         Ha: mean(diff) ~= 0        Ha: mean(diff) > 0
+       t = {res} -0.8883          {txt}      t = {res} -0.8883          {txt}    t = {res} -0.8883
+   {txt}P < t = {res}  0.1893          {txt}P > |t| = {res}  0.3787          {txt}P > t = {res}  0.8107
+{txt}
+{com}. clttest pipwater, by(treat) cluster(cluster)
+
+{txt} t-test adjusted for clustering
+{res} pipwater{txt} by {res}treat{txt}, clustered by {res}cluster
+{txt} ------------------------------------------------------------------------
+  Intra-cluster correlation{col 37}= {res}          1.0000
+{txt} ------------------------------------------------------------------------
+{col 15}N    Clusts    Mean           SE{col 60}95 % CI
+ treat=0{res}{col 11}   953{col 22}41{col 28}  0.1868{col 40}  0.0666{txt}{col 55}[{res}  0.0521{txt},{res}  0.3215{txt}]
+ treat=1{res}{col 11}   246{col 22}10{col 28}  0.3008{col 40}  0.1401{txt}{col 55}[{res} -0.0162{txt},{res}  0.6178{txt}]
+ ------------------------------------------------------------------------
+ Combined {res}{col 11}  1199{col 22}10{col 28}  0.2102{col 40}  0.0603{txt}{col 55}[{res}  0.0891{txt},{res}  0.3313{txt}]
+ ------------------------------------------------------------------------
+ Diff(0-1){res}{col 11}  1199{col 22}51{txt}{col 28}{res} -0.1140{txt}{col 40}{res}  0.1552{txt}{col 55}[{res} -0.4259{txt},{res}  0.1978{txt}]
+
+ Degrees freedom:    {res}49
+
+{txt}                    Ho: mean(-) = mean(diff) = 0
+
+  Ha: mean(diff) < 0         Ha: mean(diff) ~= 0        Ha: mean(diff) > 0
+       t = {res} -0.7349          {txt}      t = {res} -0.7349          {txt}    t = {res} -0.7349
+   {txt}P < t = {res}  0.2330          {txt}P > |t| = {res}  0.4659          {txt}P > t = {res}  0.7670
+{txt}
+{com}. clttest distcapital, by(treat) cluster(cluster)
+
+{txt} t-test adjusted for clustering
+{res} distcapital{txt} by {res}treat{txt}, clustered by {res}cluster
+{txt} ------------------------------------------------------------------------
+  Intra-cluster correlation{col 37}= {res}          1.0000
+{txt} ------------------------------------------------------------------------
+{col 15}N    Clusts    Mean           SE{col 60}95 % CI
+ treat=0{res}{col 11}   953{col 22}41{col 28} 71.1390{col 40} 11.0484{txt}{col 55}[{res} 48.8095{txt},{res} 93.4686{txt}]
+ treat=1{res}{col 11}   246{col 22}10{col 28} 50.9583{col 40} 23.2338{txt}{col 55}[{res} -1.6002{txt},{res}103.5168{txt}]
+ ------------------------------------------------------------------------
+ Combined {res}{col 11}  1199{col 22}10{col 28} 66.9985{col 40}  9.9920{txt}{col 55}[{res} 46.9190{txt},{res} 87.0781{txt}]
+ ------------------------------------------------------------------------
+ Diff(0-1){res}{col 11}  1199{col 22}51{txt}{col 28}{res} 20.1808{txt}{col 40}{res} 25.7270{txt}{col 55}[{res}-31.5195{txt},{res} 71.8810{txt}]
+
+ Degrees freedom:    {res}49
+
+{txt}                    Ho: mean(-) = mean(diff) = 0
+
+  Ha: mean(diff) < 0         Ha: mean(diff) ~= 0        Ha: mean(diff) > 0
+       t = {res}  0.7844          {txt}      t = {res}  0.7844          {txt}    t = {res}  0.7844
+   {txt}P < t = {res}  0.7817          {txt}P > |t| = {res}  0.4366          {txt}P > t = {res}  0.2183
+{txt}
+{com}. //Here we are testing whether there are significant differences between treatment
+. //and control groups for the electric, pipwater and distcapital characteristics,
+. //but taking into account possible clustering effects. 
+. 
+. 
+. //Normal ttests
+. asdoc ttest electric, by(treat) save(electric.doc), replace
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    953{col 22} .2402938{col 34} .0138476{col 46} .4274862{col 58} .2131184{col 70} .2674692
+       {txt}1 {c |}{res}{col 12}    246{col 22} .3902439{col 34} .0311647{col 46} .4887994{col 58}  .328859{col 70} .4516288
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  1,199{col 22} .2710592{col 34} .0128425{col 46} .4446921{col 58} .2458629{col 70} .2962555
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.1499501{col 34} .0315187{col 58}-.2117882{col 70} -.088112
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -4.7575
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    1197
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}1.0000
+
+{txt}{p 20 20 2}Two-sample t test with equal variances{p_end}
+
+{space 0}{hline 23}{c  TT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 22:}{space 1}{c |}{space 1}{ralign 9:obs1}{space 1}{space 1}{ralign 9:obs2}{space 1}{space 1}{ralign 9:Mean1}{space 1}{space 1}{ralign 9:Mean2}{space 1}{space 1}{ralign 9:dif}{space 1}{space 1}{ralign 9:St_Err}{space 1}{space 1}{ralign 9:t_value}{space 1}{space 1}{ralign 9:p_value}{space 1}
+{space 0}{hline 23}{c   +}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{res:{lalign 23:electric by treat}}{c |}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}
+{space 0}{space 0}{ralign 22:0 1}{space 1}{c |}{space 1}{ralign 9:{res:{sf:      953}}}{space 1}{space 1}{ralign 9:{res:{sf:      246}}}{space 1}{space 1}{ralign 9:{res:{sf:    .2405}}}{space 1}{space 1}{ralign 9:{res:{sf:      .39}}}{space 1}{space 1}{ralign 9:{res:{sf:     -.15}}}{space 1}{space 1}{ralign 9:{res:{sf:    .0315}}}{space 1}{space 1}{ralign 9:{res:{sf:    -4.75}}}{space 1}{space 1}{ralign 9:{res:{sf:        0}}}{space 1}
+{space 0}{hline 23}{c  BT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{res}{txt}(note: file electric.doc not found)
+Click to Open File:  {browse "electric.doc"}
+
+{com}. asdoc ttest pipwater, by(treat) save(pipwater.doc), replace
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    953{col 22} .1867786{col 34} .0126313{col 46} .3899383{col 58} .1619901{col 70} .2115671
+       {txt}1 {c |}{res}{col 12}    246{col 22}  .300813{col 34} .0292996{col 46} .4595465{col 58} .2431017{col 70} .3585243
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  1,199{col 22} .2101751{col 34} .0117714{col 46} .4076029{col 58} .1870803{col 70}   .23327
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.1140344{col 34} .0289749{col 58}-.1708817{col 70}-.0571871
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -3.9356
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    1197
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0000         {txt}Pr(|T| > |t|) = {res}0.0001          {txt}Pr(T > t) = {res}1.0000
+
+{txt}{p 20 20 2}Two-sample t test with equal variances{p_end}
+
+{space 0}{hline 23}{c  TT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 22:}{space 1}{c |}{space 1}{ralign 9:obs1}{space 1}{space 1}{ralign 9:obs2}{space 1}{space 1}{ralign 9:Mean1}{space 1}{space 1}{ralign 9:Mean2}{space 1}{space 1}{ralign 9:dif}{space 1}{space 1}{ralign 9:St_Err}{space 1}{space 1}{ralign 9:t_value}{space 1}{space 1}{ralign 9:p_value}{space 1}
+{space 0}{hline 23}{c   +}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{res:{lalign 23:pipwater by treat}}{c |}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}
+{space 0}{space 0}{ralign 22:0 1}{space 1}{c |}{space 1}{ralign 9:{res:{sf:      953}}}{space 1}{space 1}{ralign 9:{res:{sf:      246}}}{space 1}{space 1}{ralign 9:{res:{sf:     .187}}}{space 1}{space 1}{ralign 9:{res:{sf:     .301}}}{space 1}{space 1}{ralign 9:{res:{sf:    -.114}}}{space 1}{space 1}{ralign 9:{res:{sf:     .029}}}{space 1}{space 1}{ralign 9:{res:{sf:    -3.95}}}{space 1}{space 1}{ralign 9:{res:{sf:        0}}}{space 1}
+{space 0}{hline 23}{c  BT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{res}{txt}(note: file pipwater.doc not found)
+Click to Open File:  {browse "pipwater.doc"}
+
+{com}. asdoc ttest distcapital, by(treat) save(distcapital.doc), replace
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    953{col 22} 71.13905{col 34} 2.395817{col 46} 73.96054{col 58} 66.43735{col 70} 75.84074
+       {txt}1 {c |}{res}{col 12}    246{col 22} 50.95829{col 34} 1.792193{col 46} 28.10944{col 58} 47.42822{col 70} 54.48836
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  1,199{col 22} 66.99854{col 34} 1.953369{col 46}  67.6385{col 58} 63.16614{col 70} 70.83095
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 20.18075{col 34} 4.803887{col 58} 10.75578{col 70} 29.60573
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res}  4.2009
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    1197
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}1.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}0.0000
+
+{txt}{p 20 20 2}Two-sample t test with equal variances{p_end}
+
+{space 0}{hline 23}{c  TT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 22:}{space 1}{c |}{space 1}{ralign 9:obs1}{space 1}{space 1}{ralign 9:obs2}{space 1}{space 1}{ralign 9:Mean1}{space 1}{space 1}{ralign 9:Mean2}{space 1}{space 1}{ralign 9:dif}{space 1}{space 1}{ralign 9:St_Err}{space 1}{space 1}{ralign 9:t_value}{space 1}{space 1}{ralign 9:p_value}{space 1}
+{space 0}{hline 23}{c   +}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{space 0}{res:{lalign 23:distcapital by treat}}{c |}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}{space 11}
+{space 0}{space 0}{ralign 22:0 1}{space 1}{c |}{space 1}{ralign 9:{res:{sf:      953}}}{space 1}{space 1}{ralign 9:{res:{sf:      246}}}{space 1}{space 1}{ralign 9:{res:{sf:   71.139}}}{space 1}{space 1}{ralign 9:{res:{sf:  50.9585}}}{space 1}{space 1}{ralign 9:{res:{sf:   20.181}}}{space 1}{space 1}{ralign 9:{res:{sf:    4.804}}}{space 1}{space 1}{ralign 9:{res:{sf:      4.2}}}{space 1}{space 1}{ralign 9:{res:{sf:        0}}}{space 1}
+{space 0}{hline 23}{c  BT}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}{hline 11}
+{res}{txt}(note: file distcapital.doc not found)
+Click to Open File:  {browse "distcapital.doc"}
+
+{com}. //Here we are testing whether there are significant differences between treatment
+. //and control groups for the electric, pipwater and distcapital characteristics.
+. 
+. ***EXERCISE 2.4********
+. asdoc reg primary treat if ycohort==1, save(regression1.doc), replace
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       873
+{txt}{hline 13}{c +}{hline 34}   F(1, 871)       = {res}    11.27
+{txt}       Model {c |} {res} 1.66951068         1  1.66951068   {txt}Prob > F        ={res}    0.0008
+{txt}    Residual {c |} {res}  129.00632       871  .148112882   {txt}R-squared       ={res}    0.0128
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0116
+{txt}       Total {c |} {res}  130.67583       872  .149857604   {txt}Root MSE        =   {res} .38485
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     primary{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}treat {c |}{col 14}{res}{space 2} .1074364{col 26}{space 2} .0320003{col 37}{space 1}    3.36{col 46}{space 3}0.001{col 54}{space 4} .0446298{col 67}{space 3} .1702431
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .7942029{col 26}{space 2} .0146512{col 37}{space 1}   54.21{col 46}{space 3}0.000{col 54}{space 4} .7654472{col 67}{space 3} .8229586
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}(note: file regression1.doc not found)
+Click to Open File:  {browse "regression1.doc"}
+
+{com}. 
+. 
+. ***EXERCISE 2.5********
+. 
+. asdoc reg primary treat distcapital pipwater fhere94 mhere94 num2schols if ycohort==1, save(reg2.doc), replace
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       565
+{txt}{hline 13}{c +}{hline 34}   F(6, 558)       = {res}     9.35
+{txt}       Model {c |} {res} 7.39692924         6  1.23282154   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 73.6048407       558  .131908317   {txt}R-squared       ={res}    0.0913
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0815
+{txt}       Total {c |} {res} 81.0017699       564  .143620159   {txt}Root MSE        =   {res} .36319
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     primary{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}treat {c |}{col 14}{res}{space 2}  .094719{col 26}{space 2} .0388848{col 37}{space 1}    2.44{col 46}{space 3}0.015{col 54}{space 4} .0183404{col 67}{space 3} .1710976
+{txt}{space 1}distcapital {c |}{col 14}{res}{space 2}-.0014595{col 26}{space 2} .0002333{col 37}{space 1}   -6.26{col 46}{space 3}0.000{col 54}{space 4}-.0019176{col 67}{space 3}-.0010013
+{txt}{space 4}pipwater {c |}{col 14}{res}{space 2} .0062163{col 26}{space 2} .0373427{col 37}{space 1}    0.17{col 46}{space 3}0.868{col 54}{space 4} -.067133{col 67}{space 3} .0795657
+{txt}{space 5}fhere94 {c |}{col 14}{res}{space 2} .0031712{col 26}{space 2} .0346795{col 37}{space 1}    0.09{col 46}{space 3}0.927{col 54}{space 4}-.0649471{col 67}{space 3} .0712895
+{txt}{space 5}mhere94 {c |}{col 14}{res}{space 2}  .077319{col 26}{space 2} .0340368{col 37}{space 1}    2.27{col 46}{space 3}0.023{col 54}{space 4} .0104631{col 67}{space 3} .1441749
+{txt}{space 2}num2schols {c |}{col 14}{res}{space 2}-.0121976{col 26}{space 2} .0288948{col 37}{space 1}   -0.42{col 46}{space 3}0.673{col 54}{space 4}-.0689534{col 67}{space 3} .0445583
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .877782{col 26}{space 2} .0451282{col 37}{space 1}   19.45{col 46}{space 3}0.000{col 54}{space 4} .7891402{col 67}{space 3} .9664238
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}(note: file reg2.doc not found)
+Click to Open File:  {browse "reg2.doc"}
+
+{com}. 
+. 
+. 
+. ***EXERCISE 2.6********
+. gen prim_y=.
+{txt}(1,199 missing values generated)
+
+{com}. replace prim_y=primary if ycohort==1
+{txt}(873 real changes made)
+
+{com}. gen prim_o=.
+{txt}(1,199 missing values generated)
+
+{com}. replace prim_o=primary if ocohort==1
+{txt}(326 real changes made)
+
+{com}. 
+. ttest prim_y, by(treat)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    690{col 22} .7942029{col 34}  .015402{col 46} .4045762{col 58} .7639625{col 70} .8244433
+       {txt}1 {c |}{res}{col 12}    183{col 22} .9016393{col 34} .0220745{col 46} .2986187{col 58} .8580844{col 70} .9451942
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}    873{col 22} .8167239{col 34} .0131018{col 46} .3871145{col 58} .7910091{col 70} .8424388
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.1074364{col 34} .0320003{col 58}-.1702431{col 70}-.0446298
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -3.3574
+{txt}Ho: diff = 0                                     degrees of freedom = {res}     871
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0004         {txt}Pr(|T| > |t|) = {res}0.0008          {txt}Pr(T > t) = {res}0.9996
+{txt}
+{com}. ttest prim_o, by(treat)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    263{col 22} .3764259{col 34} .0299318{col 46} .4854126{col 58} .3174883{col 70} .4353634
+       {txt}1 {c |}{res}{col 12}     63{col 22} .4285714{col 34} .0628488{col 46} .4988466{col 58} .3029385{col 70} .5542043
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}    326{col 22} .3865031{col 34}  .027011{col 46} .4876967{col 58} .3333646{col 70} .4396416
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0521456{col 34} .0684528{col 58}-.1868136{col 70} .0825224
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -0.7618
+{txt}Ho: diff = 0                                     degrees of freedom = {res}     324
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.2234         {txt}Pr(|T| > |t|) = {res}0.4467          {txt}Pr(T > t) = {res}0.7766
+{txt}
+{com}. 
+. ***EXERCISE 2.7********
+. asdoc reg primary treat ycohort ycohortxtreat, save(regr3.doc), replace
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,199
+{txt}{hline 13}{c +}{hline 34}   F(3, 1195)      = {res}    88.38
+{txt}       Model {c |} {res} 45.7411934         3  15.2470645   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 206.168732     1,195  .172526135   {txt}R-squared       ={res}    0.1816
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1795
+{txt}       Total {c |} {res} 251.909925     1,198  .210275396   {txt}Root MSE        =   {res} .41536
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      primary{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      t{col 47}   P>|t|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}treat {c |}{col 15}{res}{space 2} .0521456{col 27}{space 2} .0582624{col 38}{space 1}    0.90{col 47}{space 3}0.371{col 55}{space 4}-.0621623{col 68}{space 3} .1664535
+{txt}{space 6}ycohort {c |}{col 15}{res}{space 2}  .417777{col 27}{space 2} .0301003{col 38}{space 1}   13.88{col 47}{space 3}0.000{col 55}{space 4} .3587216{col 68}{space 3} .4768324
+{txt}ycohortxtreat {c |}{col 15}{res}{space 2} .0552909{col 27}{space 2} .0677297{col 38}{space 1}    0.82{col 47}{space 3}0.414{col 55}{space 4}-.0775914{col 68}{space 3} .1881732
+{txt}{space 8}_cons {c |}{col 15}{res}{space 2} .3764259{col 27}{space 2} .0256124{col 38}{space 1}   14.70{col 47}{space 3}0.000{col 55}{space 4} .3261757{col 68}{space 3} .4266761
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}(note: file regr3.doc not found)
+Click to Open File:  {browse "regr3.doc"}
+
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 3\Log_Exercise_2.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 3 May 2020, 18:14:28
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

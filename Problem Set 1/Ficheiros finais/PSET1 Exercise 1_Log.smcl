@@ -1,0 +1,260 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\2º Semestre\Microeconometrics\Problem Set 1\PSET1 Exercise 1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}20 Feb 2020, 11:26:14
+
+{com}. doedit "C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\2º Semestre\Microeconometrics\Problem Set 1\PSET1_final.do"
+
+. do "C:\Users\Casa\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. //Exercise 1a
+. 
+. gen marrfem= married*female
+{txt}
+{com}. 
+. label variable marrfem "married_female"
+{txt}
+{com}. 
+. reg lwage exper expersq married female marrfem
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       526
+{txt}{hline 13}{c +}{hline 34}   F(5, 520)       = {res}    38.04
+{txt}       Model {c |} {res} 39.7221972         5  7.94443943   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 108.607565       520  .208860701   {txt}R-squared       ={res}    0.2678
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2608
+{txt}       Total {c |} {res} 148.329762       525   .28253288   {txt}Root MSE        =   {res} .45701
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}exper {c |}{col 14}{res}{space 2} .0356215{col 26}{space 2} .0058021{col 37}{space 1}    6.14{col 46}{space 3}0.000{col 54}{space 4}  .024223{col 67}{space 3}   .04702
+{txt}{space 5}expersq {c |}{col 14}{res}{space 2} -.000769{col 26}{space 2} .0001242{col 37}{space 1}   -6.19{col 46}{space 3}0.000{col 54}{space 4}-.0010129{col 67}{space 3}-.0005251
+{txt}{space 5}married {c |}{col 14}{res}{space 2} .3149537{col 26}{space 2}  .063636{col 37}{space 1}    4.95{col 46}{space 3}0.000{col 54}{space 4} .1899383{col 67}{space 3}  .439969
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.1443168{col 26}{space 2}  .064643{col 37}{space 1}   -2.23{col 46}{space 3}0.026{col 54}{space 4}-.2713103{col 67}{space 3}-.0173233
+{txt}{space 5}marrfem {c |}{col 14}{res}{space 2}-.3587692{col 26}{space 2} .0829385{col 37}{space 1}   -4.33{col 46}{space 3}0.000{col 54}{space 4}-.5217049{col 67}{space 3}-.1958335
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.348742{col 26}{space 2} .0581711{col 37}{space 1}   23.19{col 46}{space 3}0.000{col 54}{space 4} 1.234463{col 67}{space 3} 1.463021
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. est store OLS1
+{txt}
+{com}. 
+. //Exercise 1c
+. 
+. test exper expersq
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}exper = 0{p_end}
+{p 0 7}{space 1}{text:( 2)}{space 1} expersq = 0{p_end}
+
+{txt}       F(  2,   520) ={res}   19.39
+{txt}{col 13}Prob > F ={res}    0.0000
+{txt}
+{com}. 
+. //Exercise 1d
+. 
+. estat imtest, white
+
+{txt}White's test for Ho: homoskedasticity
+         against Ha: unrestricted heteroskedasticity
+
+{col 10}chi2({res}13{txt}){col 23}= {res}    24.53
+{col 10}{txt}Prob > chi2  = {res}   0.0266
+
+{txt}Cameron & Trivedi's decomposition of IM-test
+
+{hline 21}{c TT}{hline 29}
+{ralign 20:Source} {c |}       chi2     df      p
+{hline 21}{c +}{hline 29}
+{ralign 20:Heteroskedasticity} {c |}{res}      24.53     13    0.0266
+{txt}{ralign 20:Skewness} {c |}{res}       2.39      5    0.7933
+{txt}{ralign 20:Kurtosis} {c |}{res}       1.79      1    0.1805
+{txt}{hline 21}{c +}{hline 29}
+{ralign 20:Total} {c |}{res}      28.71     19    0.0707
+{txt}{hline 21}{c BT}{hline 29}
+
+{com}. 
+. 
+. //Exercise 1f (Alternative Solution)
+. 
+. quietly regress lwage exper expersq married female marrfem
+{txt}
+{com}. predict uhat, resid
+{txt}
+{com}. gen luhat2 = ln(uhat*uhat)
+{txt}
+{com}. regress luhat2 exper expersq married female marrfem //regressão auxiliar do ln(erro^2) sobre os X's
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       526
+{txt}{hline 13}{c +}{hline 34}   F(5, 520)       = {res}     5.10
+{txt}       Model {c |} {res} 112.427196         5  22.4854392   {txt}Prob > F        ={res}    0.0001
+{txt}    Residual {c |} {res} 2291.33264       520  4.40640892   {txt}R-squared       ={res}    0.0468
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0376
+{txt}       Total {c |} {res} 2403.75984       525  4.57859016   {txt}Root MSE        =   {res} 2.0991
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      luhat2{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}exper {c |}{col 14}{res}{space 2} .1245652{col 26}{space 2} .0266502{col 37}{space 1}    4.67{col 46}{space 3}0.000{col 54}{space 4} .0722098{col 67}{space 3} .1769205
+{txt}{space 5}expersq {c |}{col 14}{res}{space 2}-.0025965{col 26}{space 2} .0005703{col 37}{space 1}   -4.55{col 46}{space 3}0.000{col 54}{space 4}-.0037169{col 67}{space 3}-.0014762
+{txt}{space 5}married {c |}{col 14}{res}{space 2}-.2747285{col 26}{space 2} .2922922{col 37}{space 1}   -0.94{col 46}{space 3}0.348{col 54}{space 4}-.8489471{col 67}{space 3} .2994901
+{txt}{space 6}female {c |}{col 14}{res}{space 2} .0158071{col 26}{space 2} .2969172{col 37}{space 1}    0.05{col 46}{space 3}0.958{col 54}{space 4}-.5674977{col 67}{space 3} .5991118
+{txt}{space 5}marrfem {c |}{col 14}{res}{space 2}-.4433564{col 26}{space 2} .3809519{col 37}{space 1}   -1.16{col 46}{space 3}0.245{col 54}{space 4} -1.19175{col 67}{space 3} .3050375
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.451647{col 26}{space 2} .2671908{col 37}{space 1}  -12.92{col 46}{space 3}0.000{col 54}{space 4}-3.976553{col 67}{space 3}-2.926741
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict vhat, resid //residuo da regressão auxiliar
+{txt}
+{com}. gen evhat = exp(vhat) //exp do residuo da regressão auxiliar
+{txt}
+{com}. 
+. **Weigthed variables below, para aplicar como o WLS
+. gen w=1/(evhat)^0.5
+{txt}
+{com}. gen wlwage = lwage*w
+{txt}
+{com}. gen wexper = exper*w
+{txt}
+{com}. gen wexpersq = expersq*w
+{txt}
+{com}. gen wmarried = married*w
+{txt}
+{com}. gen wfemale = female*w
+{txt}
+{com}. gen wmarrfem = marrfem*w
+{txt}
+{com}. 
+. **FGLS model
+. regress wlwage wexper wexpersq wmarried wfemale wmarrfem
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       526
+{txt}{hline 13}{c +}{hline 34}   F(5, 520)       = {res}   697.59
+{txt}       Model {c |} {res} 104825.912         5  20965.1824   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 15627.8637       520   30.053584   {txt}R-squared       ={res}    0.8703
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.8690
+{txt}       Total {c |} {res} 120453.776       525  229.435763   {txt}Root MSE        =   {res} 5.4821
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      wlwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}wexper {c |}{col 14}{res}{space 2} .2366309{col 26}{space 2} .0051147{col 37}{space 1}   46.26{col 46}{space 3}0.000{col 54}{space 4} .2265828{col 67}{space 3} .2466789
+{txt}{space 4}wexpersq {c |}{col 14}{res}{space 2} -.005148{col 26}{space 2}  .000133{col 37}{space 1}  -38.72{col 46}{space 3}0.000{col 54}{space 4}-.0054092{col 67}{space 3}-.0048868
+{txt}{space 4}wmarried {c |}{col 14}{res}{space 2} .6036763{col 26}{space 2} .0785369{col 37}{space 1}    7.69{col 46}{space 3}0.000{col 54}{space 4} .4493878{col 67}{space 3} .7579648
+{txt}{space 5}wfemale {c |}{col 14}{res}{space 2} .1006472{col 26}{space 2} .0841593{col 37}{space 1}    1.20{col 46}{space 3}0.232{col 54}{space 4}-.0646868{col 67}{space 3} .2659813
+{txt}{space 4}wmarrfem {c |}{col 14}{res}{space 2}-.3343341{col 26}{space 2} .1279543{col 37}{space 1}   -2.61{col 46}{space 3}0.009{col 54}{space 4} -.585705{col 67}{space 3}-.0829631
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.4155068{col 26}{space 2} .2558622{col 37}{space 1}   -1.62{col 46}{space 3}0.105{col 54}{space 4}-.9181575{col 67}{space 3} .0871439
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. //Exercise 1f (Class Solution)
+. 
+. reg lwage exper expersq female married marrfem
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       526
+{txt}{hline 13}{c +}{hline 34}   F(5, 520)       = {res}    38.04
+{txt}       Model {c |} {res} 39.7221972         5  7.94443943   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 108.607565       520  .208860701   {txt}R-squared       ={res}    0.2678
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2608
+{txt}       Total {c |} {res} 148.329762       525   .28253288   {txt}Root MSE        =   {res} .45701
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}exper {c |}{col 14}{res}{space 2} .0356215{col 26}{space 2} .0058021{col 37}{space 1}    6.14{col 46}{space 3}0.000{col 54}{space 4}  .024223{col 67}{space 3}   .04702
+{txt}{space 5}expersq {c |}{col 14}{res}{space 2} -.000769{col 26}{space 2} .0001242{col 37}{space 1}   -6.19{col 46}{space 3}0.000{col 54}{space 4}-.0010129{col 67}{space 3}-.0005251
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.1443168{col 26}{space 2}  .064643{col 37}{space 1}   -2.23{col 46}{space 3}0.026{col 54}{space 4}-.2713103{col 67}{space 3}-.0173233
+{txt}{space 5}married {c |}{col 14}{res}{space 2} .3149537{col 26}{space 2}  .063636{col 37}{space 1}    4.95{col 46}{space 3}0.000{col 54}{space 4} .1899383{col 67}{space 3}  .439969
+{txt}{space 5}marrfem {c |}{col 14}{res}{space 2}-.3587692{col 26}{space 2} .0829385{col 37}{space 1}   -4.33{col 46}{space 3}0.000{col 54}{space 4}-.5217049{col 67}{space 3}-.1958335
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.348742{col 26}{space 2} .0581711{col 37}{space 1}   23.19{col 46}{space 3}0.000{col 54}{space 4} 1.234463{col 67}{space 3} 1.463021
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. predict double that, resid
+{txt}
+{com}. 
+. gen double thatsq = that^2
+{txt}
+{com}. 
+. gen uno = 1
+{txt}
+{com}. 
+. gen abse =abs(exper)
+{txt}
+{com}. 
+. gen absesq =abs(expersq)
+{txt}
+{com}. 
+. gen absfemale =abs(female)
+{txt}
+{com}. 
+. gen absmarried =abs(married)
+{txt}
+{com}. 
+. gen absmarfem =abs(marrfem)
+{txt}
+{com}. 
+. qui nl(thatsq= exp({c -(}xb: abse absesq absfemale absmarried absmarfem uno{c )-} )), nolog
+{txt}
+{com}. 
+. predict double varu, yhat
+{txt}
+{com}. 
+. qui reg lwage exper expersq female married marrfem [aweight = 1/varu]
+{txt}
+{com}. 
+. estat hettest exper expersq female married marrfem, mtest
+
+{txt}Breusch-Pagan / Cook-Weisberg test for heteroskedasticity 
+         Ho: Constant variance
+
+{hline 13}{c TT}{hline 25}
+    Variable {c |}      chi2   df      p 
+{hline 13}{c +}{hline 25}
+{space 7}exper {c |} {res}{col 16}     0.54{col 24}    1{col 33}0.4624 #
+{txt}{space 5}expersq {c |} {res}{col 16}     0.05{col 24}    1{col 33}0.8187 #
+{txt}{space 6}female {c |} {res}{col 16}     1.92{col 24}    1{col 33}0.1663 #
+{txt}{space 5}married {c |} {res}{col 16}     1.37{col 24}    1{col 33}0.2424 #
+{txt}{space 5}marrfem {c |} {res}{col 16}     7.80{col 24}    1{col 33}0.0052 #
+{txt}{hline 13}{c +}{hline 25}
+simultaneous{col 14}{c |} {res}{col 16}    29.64{col 24}    5{col 33}0.0000
+{txt}{hline 13}{c BT}{hline 25}
+{ralign 39:{it:# unadjusted p-values}}
+
+{com}. 
+. 
+. //Exercise 1g
+. 
+. gen newvar = 2*exper + married
+{txt}
+{com}. 
+. reg lwage exper newvar female
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       526
+{txt}{hline 13}{c +}{hline 34}   F(3, 522)       = {res}    39.58
+{txt}       Model {c |} {res} 27.4906344         3  9.16354481   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 120.839127       522  .231492581   {txt}R-squared       ={res}    0.1853
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1807
+{txt}       Total {c |} {res} 148.329762       525   .28253288   {txt}Root MSE        =   {res} .48114
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}exper {c |}{col 14}{res}{space 2}-.4428601{col 26}{space 2} .0923614{col 37}{space 1}   -4.79{col 46}{space 3}0.000{col 54}{space 4}-.6243058{col 67}{space 3}-.2614144
+{txt}{space 6}newvar {c |}{col 14}{res}{space 2} .2220681{col 26}{space 2} .0459175{col 37}{space 1}    4.84{col 46}{space 3}0.000{col 54}{space 4} .1318623{col 67}{space 3} .3122738
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.3597292{col 26}{space 2} .0425886{col 37}{space 1}   -8.45{col 46}{space 3}0.000{col 54}{space 4}-.4433953{col 67}{space 3}-.2760631
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.638797{col 26}{space 2}  .045716{col 37}{space 1}   35.85{col 46}{space 3}0.000{col 54}{space 4} 1.548987{col 67}{space 3} 1.728607
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\2º Semestre\Microeconometrics\Problem Set 1\PSET1 Exercise 1.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}20 Feb 2020, 11:27:03
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

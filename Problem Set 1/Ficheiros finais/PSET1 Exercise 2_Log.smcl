@@ -1,0 +1,440 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\2º Semestre\Microeconometrics\Problem Set 1\PSET1 Exercise 2_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}20 Feb 2020, 11:28:00
+
+{com}. doedit "C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\2º Semestre\Microeconometrics\Problem Set 1\PSET1_final.do"
+
+. do "C:\Users\Casa\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. //EXERCISE 2
+. 
+.  summarize AGE EDUC LWAGE MARRIED CENSUS QOB RACE SMSA YOB AGESQ
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}AGE {c |}{res}    816,435    38.48743     5.83729         30         50
+{txt}{space 8}EDUC {c |}{res}    816,435    13.24814    3.130048          0         20
+{txt}{space 7}LWAGE {c |}{res}    816,435    5.838823    .6609893  -2.341806   11.22524
+{txt}{space 5}MARRIED {c |}{res}    816,435    .8277217    .3776223          0          1
+{txt}{space 6}CENSUS {c |}{res}    816,435          80           0         80         80
+{txt}{hline 13}{c +}{hline 57}
+{space 9}QOB {c |}{res}    816,435    2.524654    1.114153          1          4
+{txt}{space 8}RACE {c |}{res}    816,435    .0816574    .2738423          0          1
+{txt}{space 8}SMSA {c |}{res}    816,435    .1858311    .3889705          0          1
+{txt}{space 9}YOB {c |}{res}    816,435    40.75679    5.818607         30         49
+{txt}{space 7}AGESQ {c |}{res}    816,435    1515.356    460.1142        900       2500
+{txt}
+{com}. 
+.  // a
+. 
+. mean(EDUC) if QOB == 1 & YOB == 30| YOB == 31 | YOB == 32 | YOB == 33 | YOB == 34 | YOB== 35 | YOB == 36| YOB == 37 |YOB == 38 | YOB== 39 
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}   304,302
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} 12.79116{col 26}{space 2} .0059236{col 37}{space 5} 12.77955{col 51}{space 3} 12.80277
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(EDUC) if QOB == 2 & YOB == 30| YOB == 31 | YOB == 32 | YOB == 33 | YOB == 34 | YOB== 35 | YOB == 36| YOB == 37 |YOB == 38 | YOB== 39 
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}   304,303
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} 12.79525{col 26}{space 2} .0059243{col 37}{space 5} 12.78364{col 51}{space 3} 12.80686
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(EDUC) if QOB == 3 & YOB == 30| YOB == 31 | YOB == 32 | YOB == 33 | YOB == 34 | YOB== 35 | YOB == 36| YOB == 37 |YOB == 38 | YOB== 39 
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}   304,629
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} 12.79667{col 26}{space 2}  .005917{col 37}{space 5} 12.78507{col 51}{space 3} 12.80827
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(EDUC) if QOB == 4 & YOB == 30| YOB == 31 | YOB == 32 | YOB == 33 | YOB == 34 | YOB== 35 | YOB == 36| YOB == 37 |YOB == 38 | YOB== 39 
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}   303,996
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} 12.80084{col 26}{space 2} .0059226{col 37}{space 5} 12.78923{col 51}{space 3} 12.81245
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}.  
+. mean(EDUC) if QOB == 1 & YOB == 40| YOB == 41 | YOB == 42 | YOB == 43 | YOB == 44 | YOB== 45 | YOB == 46| YOB == 47 |YOB == 48 | YOB== 49 
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}   458,044
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} 13.59772{col 26}{space 2} .0043878{col 37}{space 5} 13.58912{col 51}{space 3} 13.60632
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(EDUC) if QOB == 2 & YOB == 40| YOB == 41 | YOB == 42 | YOB == 43 | YOB == 44 | YOB== 45 | YOB == 46| YOB == 47 |YOB == 48 | YOB== 49  
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}   458,046
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} 13.59846{col 26}{space 2} .0043896{col 37}{space 5} 13.58986{col 51}{space 3} 13.60706
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(EDUC) if QOB == 3 & YOB == 40| YOB == 41 | YOB == 42 | YOB == 43 | YOB == 44 | YOB== 45 | YOB == 46| YOB == 47 |YOB == 48 | YOB== 49  
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}   458,943
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} 13.59971{col 26}{space 2} .0043824{col 37}{space 5} 13.59112{col 51}{space 3}  13.6083
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(EDUC) if QOB == 4 & YOB == 40| YOB == 41 | YOB == 42 | YOB == 43 | YOB == 44 | YOB== 45 | YOB == 46| YOB == 47 |YOB == 48 | YOB== 49 
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}   458,017
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} 13.60276{col 26}{space 2}  .004385{col 37}{space 5} 13.59417{col 51}{space 3} 13.61136
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. 
+. // b
+. keep if YOB == 30| YOB == 31 | YOB == 32 | YOB == 33 | YOB == 34 | YOB== 35 | YOB == 36| YOB == 37 |YOB == 38 | YOB== 39 
+{txt}(486,926 observations deleted)
+
+{com}. 
+. reg LWAGE EDUC AGE AGESQ
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   329,509
+{txt}{hline 13}{c +}{hline 34}   F(3, 329505)    = {res} 14653.40
+{txt}       Model {c |} {res} 17872.6742         3  5957.55806   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 133965.197   329,505  .406564989   {txt}R-squared       ={res}    0.1177
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1177
+{txt}       Total {c |} {res} 151837.871   329,508  .460801773   {txt}Root MSE        =   {res} .63762
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       LWAGE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} .0710821{col 26}{space 2}  .000339{col 37}{space 1}  209.66{col 46}{space 3}0.000{col 54}{space 4} .0704176{col 67}{space 3} .0717466
+{txt}{space 9}AGE {c |}{col 14}{res}{space 2}-.0107099{col 26}{space 2} .0128116{col 37}{space 1}   -0.84{col 46}{space 3}0.403{col 54}{space 4}-.0358203{col 67}{space 3} .0144005
+{txt}{space 7}AGESQ {c |}{col 14}{res}{space 2} .0001725{col 26}{space 2} .0001432{col 37}{space 1}    1.20{col 46}{space 3}0.228{col 54}{space 4}-.0001081{col 67}{space 3} .0004531
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.125068{col 26}{space 2} .2856793{col 37}{space 1}   17.94{col 46}{space 3}0.000{col 54}{space 4} 4.565145{col 67}{space 3} 5.684991
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. // d
+. 
+. gen first_qob = QOB==1
+{txt}
+{com}. 
+. ssc install ranktest
+{txt}checking {hilite:ranktest} consistency and verifying not already installed...
+all files already exist and are up to date.
+
+{com}. 
+. ssc install ivreg2
+{txt}checking {hilite:ivreg2} consistency and verifying not already installed...
+all files already exist and are up to date.
+
+{com}. 
+. ivreg2 LWAGE (EDUC = first_qob)
+{res}
+{txt}IV (2SLS) estimation
+{hline 20}
+
+Estimates efficient for homoskedasticity only
+Statistics consistent for homoskedasticity only
+
+{col 55}Number of obs = {res}  329509
+{txt}{col 55}F(  1,329507) = {res}   18.14
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res} 151837.8708{txt}{col 55}Centered R2   = {res}  0.0946
+{txt}Total (uncentered) SS   = {res} 11621827.82{txt}{col 55}Uncentered R2 = {res}  0.9882
+{txt}Residual SS             = {res} 137470.0876{txt}{col 55}Root MSE      = {res}   .6459
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       LWAGE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2}  .101995{col 26}{space 2} .0239489{col 37}{space 1}    4.26{col 46}{space 3}0.000{col 54}{space 4}  .055056{col 67}{space 3}  .148934
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.597477{col 26}{space 2} .3058276{col 37}{space 1}   15.03{col 46}{space 3}0.000{col 54}{space 4} 3.998066{col 67}{space 3} 5.196888
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Anderson canon. corr. LM statistic):{res}{col 71}  67.561
+{txt}{col 52}Chi-sq({res}1{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71}  67.574
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42}10% maximal IV size{res}{col 73} 16.38
+{txt}{col 42}15% maximal IV size{res}{col 73}  8.96
+{txt}{col 42}20% maximal IV size{res}{col 73}  6.66
+{txt}{col 42}25% maximal IV size{res}{col 73}  5.53
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+{hline 78}
+{help ivreg2##overidtests:Sargan statistic} (overidentification test of all instruments):{res}{col 71}   0.000
+{txt}{col 50}(equation exactly identified)
+{hline 78}
+Instrumented:{col 23}EDUC
+Excluded instruments:{col 23}first_qob
+{hline 78}
+
+{com}. 
+. reg LWAGE EDUC
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   329,509
+{txt}{hline 13}{c +}{hline 34}   F(1, 329507)    = {res} 43782.56
+{txt}       Model {c |} {res} 17808.8293         1  17808.8293   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 134029.041   329,507   .40675628   {txt}R-squared       ={res}    0.1173
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1173
+{txt}       Total {c |} {res} 151837.871   329,508  .460801773   {txt}Root MSE        =   {res} .63777
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       LWAGE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2}  .070851{col 26}{space 2} .0003386{col 37}{space 1}  209.24{col 46}{space 3}0.000{col 54}{space 4} .0701874{col 67}{space 3} .0715147
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.995182{col 26}{space 2} .0044644{col 37}{space 1} 1118.88{col 46}{space 3}0.000{col 54}{space 4} 4.986432{col 67}{space 3} 5.003932
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. // e i)
+. 
+. gen z1= QOB==1
+{txt}
+{com}. gen z2= QOB==2
+{txt}
+{com}. gen z3= QOB==3
+{txt}
+{com}. 
+. reg EDUC z1 z2 z3 AGE AGESQ RACE MARRIED SMSA
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   329,509
+{txt}{hline 13}{c +}{hline 34}   F(8, 329500)    = {res}  1785.33
+{txt}       Model {c |} {res} 147389.886         8  18423.7358   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 3400277.78   329,500  10.3195077   {txt}R-squared       ={res}    0.0415
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0415
+{txt}       Total {c |} {res} 3547667.66   329,508    10.76656   {txt}Root MSE        =   {res} 3.2124
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        EDUC{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}z1 {c |}{col 14}{res}{space 2}-.0764727{col 26}{space 2} .0160689{col 37}{space 1}   -4.76{col 46}{space 3}0.000{col 54}{space 4}-.1079673{col 67}{space 3} -.044978
+{txt}{space 10}z2 {c |}{col 14}{res}{space 2}-.0875651{col 26}{space 2} .0160135{col 37}{space 1}   -5.47{col 46}{space 3}0.000{col 54}{space 4}-.1189512{col 67}{space 3}-.0561791
+{txt}{space 10}z3 {c |}{col 14}{res}{space 2} -.039263{col 26}{space 2} .0156992{col 37}{space 1}   -2.50{col 46}{space 3}0.012{col 54}{space 4}-.0700331{col 67}{space 3}-.0084929
+{txt}{space 9}AGE {c |}{col 14}{res}{space 2} .0568153{col 26}{space 2}  .064557{col 37}{space 1}    0.88{col 46}{space 3}0.379{col 54}{space 4}-.0697145{col 67}{space 3} .1833452
+{txt}{space 7}AGESQ {c |}{col 14}{res}{space 2}-.0013448{col 26}{space 2} .0007215{col 37}{space 1}   -1.86{col 46}{space 3}0.062{col 54}{space 4}-.0027588{col 67}{space 3} .0000693
+{txt}{space 8}RACE {c |}{col 14}{res}{space 2}-1.708953{col 26}{space 2} .0205686{col 37}{space 1}  -83.09{col 46}{space 3}0.000{col 54}{space 4}-1.749267{col 67}{space 3}-1.668639
+{txt}{space 5}MARRIED {c |}{col 14}{res}{space 2} .1573868{col 26}{space 2} .0163607{col 37}{space 1}    9.62{col 46}{space 3}0.000{col 54}{space 4} .1253202{col 67}{space 3} .1894533
+{txt}{space 8}SMSA {c |}{col 14}{res}{space 2}-1.168669{col 26}{space 2} .0143963{col 37}{space 1}  -81.18{col 46}{space 3}0.000{col 54}{space 4}-1.196886{col 67}{space 3}-1.140453
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 13.19756{col 26}{space 2} 1.439348{col 37}{space 1}    9.17{col 46}{space 3}0.000{col 54}{space 4} 10.37648{col 67}{space 3} 16.01864
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. // e ii)
+. 
+. test z1 z2 z3 //relevance restriction
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}z1 = 0{p_end}
+{p 0 7}{space 1}{text:( 2)}{space 1} z2 = 0{p_end}
+{p 0 7}{space 1}{text:( 3)}{space 1} z3 = 0{p_end}
+
+{txt}       F(  3,329500) ={res}   12.28
+{txt}{col 13}Prob > F ={res}    0.0000
+{txt}
+{com}. 
+. //Exogeneity Sargan test below
+. qui ivreg LWAGE (EDUC=z1 z2 z3) AGE AGESQ RACE MARRIED SMSA //regression of lwage on all exogenous variables
+{txt}
+{com}. predict vhat_iv, res //get the error
+{txt}
+{com}. reg vhat_iv z1 z2 z3 AGE AGESQ RACE MARRIED SMSA //regress the error on all the exogenous variables
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   329,509
+{txt}{hline 13}{c +}{hline 34}   F(8, 329500)    = {res}     0.68
+{txt}       Model {c |} {res} 2.33449126         8  .291811407   {txt}Prob > F        ={res}    0.7060
+{txt}    Residual {c |} {res} 140536.456   329,500  .426514283   {txt}R-squared       ={res}    0.0000
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0000
+{txt}       Total {c |} {res} 140538.791   329,508  .426511013   {txt}Root MSE        =   {res} .65308
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     vhat_iv{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}z1 {c |}{col 14}{res}{space 2}-.0014457{col 26}{space 2} .0032668{col 37}{space 1}   -0.44{col 46}{space 3}0.658{col 54}{space 4}-.0078485{col 67}{space 3} .0049572
+{txt}{space 10}z2 {c |}{col 14}{res}{space 2} .0027662{col 26}{space 2} .0032556{col 37}{space 1}    0.85{col 46}{space 3}0.396{col 54}{space 4}-.0036146{col 67}{space 3}  .009147
+{txt}{space 10}z3 {c |}{col 14}{res}{space 2} .0054641{col 26}{space 2} .0031917{col 37}{space 1}    1.71{col 46}{space 3}0.087{col 54}{space 4}-.0007915{col 67}{space 3} .0117196
+{txt}{space 9}AGE {c |}{col 14}{res}{space 2}-.0002639{col 26}{space 2} .0131244{col 37}{space 1}   -0.02{col 46}{space 3}0.984{col 54}{space 4}-.0259874{col 67}{space 3} .0254596
+{txt}{space 7}AGESQ {c |}{col 14}{res}{space 2} 4.05e-06{col 26}{space 2} .0001467{col 37}{space 1}    0.03{col 46}{space 3}0.978{col 54}{space 4}-.0002834{col 67}{space 3} .0002915
+{txt}{space 8}RACE {c |}{col 14}{res}{space 2} .0000503{col 26}{space 2} .0041816{col 37}{space 1}    0.01{col 46}{space 3}0.990{col 54}{space 4}-.0081455{col 67}{space 3}  .008246
+{txt}{space 5}MARRIED {c |}{col 14}{res}{space 2}-.0000188{col 26}{space 2} .0033261{col 37}{space 1}   -0.01{col 46}{space 3}0.995{col 54}{space 4}-.0065379{col 67}{space 3} .0065003
+{txt}{space 8}SMSA {c |}{col 14}{res}{space 2} .0000287{col 26}{space 2} .0029268{col 37}{space 1}    0.01{col 46}{space 3}0.992{col 54}{space 4}-.0057077{col 67}{space 3}  .005765
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0019237{col 26}{space 2} .2926194{col 37}{space 1}    0.01{col 46}{space 3}0.995{col 54}{space 4} -.571602{col 67}{space 3} .5754493
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ereturn list
+
+{txt}scalars:
+                  e(N) =  {res}329509
+               {txt}e(df_m) =  {res}8
+               {txt}e(df_r) =  {res}329500
+                  {txt}e(F) =  {res}.6841773389167296
+                 {txt}e(r2) =  {res}.0000166110099918
+               {txt}e(rmse) =  {res}.6530806101046791
+                {txt}e(mss) =  {res}2.334491258836351
+                {txt}e(rss) =  {res}140536.4563456036
+               {txt}e(r2_a) =  {res}-7.66779763151e-06
+                 {txt}e(ll) =  {res}-327159.6551351792
+               {txt}e(ll_0) =  {res}-327162.3918965551
+               {txt}e(rank) =  {res}9
+
+{txt}macros:
+            e(cmdline) : "{res}regress vhat_iv z1 z2 z3 AGE AGESQ RACE MARRIED SMSA{txt}"
+              e(title) : "{res}Linear regression{txt}"
+          e(marginsok) : "{res}XB default{txt}"
+                e(vce) : "{res}ols{txt}"
+             e(depvar) : "{res}vhat_iv{txt}"
+                e(cmd) : "{res}regress{txt}"
+         e(properties) : "{res}b V{txt}"
+            e(predict) : "{res}regres_p{txt}"
+              e(model) : "{res}ols{txt}"
+          e(estat_cmd) : "{res}regress_estat{txt}"
+
+matrices:
+                  e(b) : {res} 1 x 9
+                  {txt}e(V) : {res} 9 x 9
+
+{txt}functions:
+             e(sample)   
+
+{com}. 
+. scalar nR2=e(N)*e(r2) //test statistic
+{txt}
+{com}. di nR2
+{res}5.4734773
+{txt}
+{com}. 
+. scalar pvalOverid=chi2tail(2,nR2) //2=number of instruments - number of endog variables
+{txt}
+{com}. di pvalOverid
+{res}.06478128
+{txt}
+{com}. 
+. // e iii)
+. 
+. reg LWAGE EDUC AGE AGESQ RACE MARRIED SMSA 
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   329,509
+{txt}{hline 13}{c +}{hline 34}   F(6, 329502)    = {res} 10211.23
+{txt}       Model {c |} {res} 23806.1326         6  3967.68877   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 128031.738   329,502  .388561338   {txt}R-squared       ={res}    0.1568
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1568
+{txt}       Total {c |} {res} 151837.871   329,508  .460801773   {txt}Root MSE        =   {res} .62335
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       LWAGE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}EDUC {c |}{col 14}{res}{space 2} .0642292{col 26}{space 2}  .000338{col 37}{space 1}  190.01{col 46}{space 3}0.000{col 54}{space 4} .0635667{col 67}{space 3} .0648917
+{txt}{space 9}AGE {c |}{col 14}{res}{space 2}-.0050627{col 26}{space 2} .0125251{col 37}{space 1}   -0.40{col 46}{space 3}0.686{col 54}{space 4}-.0296115{col 67}{space 3} .0194861
+{txt}{space 7}AGESQ {c |}{col 14}{res}{space 2} .0000923{col 26}{space 2}   .00014{col 37}{space 1}    0.66{col 46}{space 3}0.510{col 54}{space 4} -.000182{col 67}{space 3} .0003666
+{txt}{space 8}RACE {c |}{col 14}{res}{space 2}-.2692726{col 26}{space 2} .0040327{col 37}{space 1}  -66.77{col 46}{space 3}0.000{col 54}{space 4}-.2771766{col 67}{space 3}-.2613686
+{txt}{space 5}MARRIED {c |}{col 14}{res}{space 2} .2425802{col 26}{space 2} .0031751{col 37}{space 1}   76.40{col 46}{space 3}0.000{col 54}{space 4}  .236357{col 67}{space 3} .2488034
+{txt}{space 8}SMSA {c |}{col 14}{res}{space 2}-.1954911{col 26}{space 2} .0028213{col 37}{space 1}  -69.29{col 46}{space 3}0.000{col 54}{space 4}-.2010208{col 67}{space 3}-.1899615
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.970168{col 26}{space 2} .2792892{col 37}{space 1}   17.80{col 46}{space 3}0.000{col 54}{space 4} 4.422769{col 67}{space 3} 5.517567
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. est store OLS
+{txt}
+{com}. 
+. 
+. //2SLS
+. reg EDUC z1 z2 z3 AGE AGESQ RACE MARRIED SMSA //first stage
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   329,509
+{txt}{hline 13}{c +}{hline 34}   F(8, 329500)    = {res}  1785.33
+{txt}       Model {c |} {res} 147389.886         8  18423.7358   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 3400277.78   329,500  10.3195077   {txt}R-squared       ={res}    0.0415
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0415
+{txt}       Total {c |} {res} 3547667.66   329,508    10.76656   {txt}Root MSE        =   {res} 3.2124
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        EDUC{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}z1 {c |}{col 14}{res}{space 2}-.0764727{col 26}{space 2} .0160689{col 37}{space 1}   -4.76{col 46}{space 3}0.000{col 54}{space 4}-.1079673{col 67}{space 3} -.044978
+{txt}{space 10}z2 {c |}{col 14}{res}{space 2}-.0875651{col 26}{space 2} .0160135{col 37}{space 1}   -5.47{col 46}{space 3}0.000{col 54}{space 4}-.1189512{col 67}{space 3}-.0561791
+{txt}{space 10}z3 {c |}{col 14}{res}{space 2} -.039263{col 26}{space 2} .0156992{col 37}{space 1}   -2.50{col 46}{space 3}0.012{col 54}{space 4}-.0700331{col 67}{space 3}-.0084929
+{txt}{space 9}AGE {c |}{col 14}{res}{space 2} .0568153{col 26}{space 2}  .064557{col 37}{space 1}    0.88{col 46}{space 3}0.379{col 54}{space 4}-.0697145{col 67}{space 3} .1833452
+{txt}{space 7}AGESQ {c |}{col 14}{res}{space 2}-.0013448{col 26}{space 2} .0007215{col 37}{space 1}   -1.86{col 46}{space 3}0.062{col 54}{space 4}-.0027588{col 67}{space 3} .0000693
+{txt}{space 8}RACE {c |}{col 14}{res}{space 2}-1.708953{col 26}{space 2} .0205686{col 37}{space 1}  -83.09{col 46}{space 3}0.000{col 54}{space 4}-1.749267{col 67}{space 3}-1.668639
+{txt}{space 5}MARRIED {c |}{col 14}{res}{space 2} .1573868{col 26}{space 2} .0163607{col 37}{space 1}    9.62{col 46}{space 3}0.000{col 54}{space 4} .1253202{col 67}{space 3} .1894533
+{txt}{space 8}SMSA {c |}{col 14}{res}{space 2}-1.168669{col 26}{space 2} .0143963{col 37}{space 1}  -81.18{col 46}{space 3}0.000{col 54}{space 4}-1.196886{col 67}{space 3}-1.140453
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 13.19756{col 26}{space 2} 1.439348{col 37}{space 1}    9.17{col 46}{space 3}0.000{col 54}{space 4} 10.37648{col 67}{space 3} 16.01864
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict EDUCHAT
+{txt}(option {bf:xb} assumed; fitted values)
+
+{com}. reg LWAGE EDUCHAT AGE AGESQ RACE MARRIED SMSA //second stage
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   329,509
+{txt}{hline 13}{c +}{hline 34}   F(6, 329502)    = {res}  3782.02
+{txt}       Model {c |} {res} 9783.03141         6  1630.50523   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 142054.839   329,502  .431119809   {txt}R-squared       ={res}    0.0644
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0644
+{txt}       Total {c |} {res} 151837.871   329,508  .460801773   {txt}Root MSE        =   {res}  .6566
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       LWAGE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}EDUCHAT {c |}{col 14}{res}{space 2} .1248746{col 26}{space 2} .0336718{col 37}{space 1}    3.71{col 46}{space 3}0.000{col 54}{space 4} .0588789{col 67}{space 3} .1908703
+{txt}{space 9}AGE {c |}{col 14}{res}{space 2}-.0087244{col 26}{space 2} .0133489{col 37}{space 1}   -0.65{col 46}{space 3}0.513{col 54}{space 4}-.0348878{col 67}{space 3} .0174391
+{txt}{space 7}AGESQ {c |}{col 14}{res}{space 2} .0001768{col 26}{space 2} .0001547{col 37}{space 1}    1.14{col 46}{space 3}0.253{col 54}{space 4}-.0001264{col 67}{space 3} .0004801
+{txt}{space 8}RACE {c |}{col 14}{res}{space 2}-.1655854{col 26}{space 2} .0577229{col 37}{space 1}   -2.87{col 46}{space 3}0.004{col 54}{space 4}-.2787206{col 67}{space 3}-.0524503
+{txt}{space 5}MARRIED {c |}{col 14}{res}{space 2} .2330318{col 26}{space 2} .0062681{col 37}{space 1}   37.18{col 46}{space 3}0.000{col 54}{space 4} .2207466{col 67}{space 3}  .245317
+{txt}{space 8}SMSA {c |}{col 14}{res}{space 2} -.124608{col 26}{space 2} .0394658{col 37}{space 1}   -3.16{col 46}{space 3}0.002{col 54}{space 4}-.2019599{col 67}{space 3}-.0472561
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.176531{col 26}{space 2} .5298051{col 37}{space 1}    7.88{col 46}{space 3}0.000{col 54}{space 4} 3.138128{col 67}{space 3} 5.214934
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. est store sls
+{txt}
+{com}. 
+. ssc install estout
+{txt}checking {hilite:estout} consistency and verifying not already installed...
+all files already exist and are up to date.
+
+{com}. estout OLS sls
+{res}
+{txt}{hline 38}
+{txt}                      OLS          sls
+{txt}                        b            b
+{txt}{hline 38}
+{txt}EDUC        {res}     .0642292             {txt}
+{txt}AGE         {res}    -.0050627    -.0087244{txt}
+{txt}AGESQ       {res}     .0000923     .0001768{txt}
+{txt}RACE        {res}    -.2692726    -.1655854{txt}
+{txt}MARRIED     {res}     .2425802     .2330318{txt}
+{txt}SMSA        {res}    -.1954911     -.124608{txt}
+{txt}EDUCHAT     {res}                  .1248746{txt}
+{txt}_cons       {res}     4.970168     4.176531{txt}
+{txt}{hline 38}
+
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\2º Semestre\Microeconometrics\Problem Set 1\PSET1 Exercise 2_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}20 Feb 2020, 11:28:57
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

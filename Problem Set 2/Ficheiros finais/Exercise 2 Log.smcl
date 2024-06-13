@@ -1,0 +1,178 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\andre\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 2\Exercise 2 Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}18 Mar 2020, 17:27:36
+
+{com}. do "C:\Users\andre\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. // Exercise 2
+. 
+. 
+. //2a)
+. 
+. sum nettfa inc age e401k
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}nettfa {c |}{res}      2,017    13.59498    47.59058     -143.5   1134.098
+{txt}{space 9}inc {c |}{res}      2,017    29.44618    16.67356     10.008    143.067
+{txt}{space 9}age {c |}{res}      2,017    39.27814    10.82328         25         64
+{txt}{space 7}e401k {c |}{res}      2,017    .3604363    .4802461          0          1
+{txt}
+{com}. 
+. hist nettfa
+{txt}(bin={res}33{txt}, start={res}-143.5{txt}, width={res}38.715092{txt})
+{res}{txt}
+{com}. 
+. //2b)
+. 
+. reg nettfa inc age agesq e401k
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     2,017
+{txt}{hline 13}{c +}{hline 34}   F(4, 2012)      = {res}    73.39
+{txt}       Model {c |} {res} 581351.295         4  145337.824   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 3984613.75     2,012  1980.42433   {txt}R-squared       ={res}    0.1273
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1256
+{txt}       Total {c |} {res} 4565965.05     2,016  2264.86361   {txt}Root MSE        =   {res} 44.502
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      nettfa{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}inc {c |}{col 14}{res}{space 2} .7825921{col 26}{space 2} .0615825{col 37}{space 1}   12.71{col 46}{space 3}0.000{col 54}{space 4}   .66182{col 67}{space 3} .9033643
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-1.567659{col 26}{space 2} .7695559{col 37}{space 1}   -2.04{col 46}{space 3}0.042{col 54}{space 4}-3.076869{col 67}{space 3}-.0584495
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2} .0283926{col 26}{space 2} .0090215{col 37}{space 1}    3.15{col 46}{space 3}0.002{col 54}{space 4} .0107001{col 67}{space 3} .0460851
+{txt}{space 7}e401k {c |}{col 14}{res}{space 2} 6.836563{col 26}{space 2} 2.131124{col 37}{space 1}    3.21{col 46}{space 3}0.001{col 54}{space 4} 2.657123{col 67}{space 3}   11.016
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.533552{col 26}{space 2} 15.28998{col 37}{space 1}    0.17{col 46}{space 3}0.868{col 54}{space 4} -27.4523{col 67}{space 3} 32.51941
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. //2c)
+. 
+. //H0: No Heteroskedasticity 
+. //H1: Heteroskedasticity 
+. 
+. imtest, white
+
+{txt}White's test for Ho: homoskedasticity
+         against Ha: unrestricted heteroskedasticity
+
+{col 10}chi2({res}12{txt}){col 23}= {res}    33.34
+{col 10}{txt}Prob > chi2  = {res}   0.0009
+
+{txt}Cameron & Trivedi's decomposition of IM-test
+
+{hline 21}{c TT}{hline 29}
+{ralign 20:Source} {c |}       chi2     df      p
+{hline 21}{c +}{hline 29}
+{ralign 20:Heteroskedasticity} {c |}{res}      33.34     12    0.0009
+{txt}{ralign 20:Skewness} {c |}{res}       6.39      4    0.1719
+{txt}{ralign 20:Kurtosis} {c |}{res}       1.88      1    0.1704
+{txt}{hline 21}{c +}{hline 29}
+{ralign 20:Total} {c |}{res}      41.60     17    0.0008
+{txt}{hline 21}{c BT}{hline 29}
+
+{com}. 
+. //2d)
+. 
+. sqreg nettfa inc age agesq e401k, nolog q(0.1 0.25 0.5 0.75 0.9) reps(40)
+{res}
+{txt}Simultaneous quantile regression{col 53}Number of obs = {res}     2,017
+{txt}  bootstrap({res}40{txt}) SEs{col 53}.10 Pseudo R2 = {res}    0.0101
+{txt}{col 53}.25 Pseudo R2 = {res}    0.0097
+{txt}{col 53}.50 Pseudo R2 = {res}    0.0678
+{txt}{col 53}.75 Pseudo R2 = {res}    0.1825
+{txt}{col 53}.90 Pseudo R2 = {res}    0.2540
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}   Bootstrap
+{col 1}      nettfa{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q10          {txt}{c |}
+{space 9}inc {c |}{col 14}{res}{space 2}-.0179136{col 26}{space 2} .0449458{col 37}{space 1}   -0.40{col 46}{space 3}0.690{col 54}{space 4}-.1060587{col 67}{space 3} .0702316
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0663223{col 26}{space 2}  .207903{col 37}{space 1}   -0.32{col 46}{space 3}0.750{col 54}{space 4}-.4740501{col 67}{space 3} .3414054
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2} .0023628{col 26}{space 2} .0024273{col 37}{space 1}    0.97{col 46}{space 3}0.330{col 54}{space 4}-.0023975{col 67}{space 3} .0071232
+{txt}{space 7}e401k {c |}{col 14}{res}{space 2} .9494157{col 26}{space 2} .5518668{col 37}{space 1}    1.72{col 46}{space 3}0.086{col 54}{space 4}-.1328744{col 67}{space 3} 2.031706
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-5.228012{col 26}{space 2} 4.013196{col 37}{space 1}   -1.30{col 46}{space 3}0.193{col 54}{space 4}-13.09847{col 67}{space 3} 2.642441
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q25          {txt}{c |}
+{space 9}inc {c |}{col 14}{res}{space 2} .0712858{col 26}{space 2} .0179444{col 37}{space 1}    3.97{col 46}{space 3}0.000{col 54}{space 4} .0360943{col 67}{space 3} .1064774
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0336287{col 26}{space 2} .1038057{col 37}{space 1}    0.32{col 46}{space 3}0.746{col 54}{space 4}-.1699492{col 67}{space 3} .2372066
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2}  .000372{col 26}{space 2}  .001151{col 37}{space 1}    0.32{col 46}{space 3}0.747{col 54}{space 4}-.0018854{col 67}{space 3} .0026293
+{txt}{space 7}e401k {c |}{col 14}{res}{space 2} 1.281012{col 26}{space 2} .3245736{col 37}{space 1}    3.95{col 46}{space 3}0.000{col 54}{space 4} .6444762{col 67}{space 3} 1.917547
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-4.372772{col 26}{space 2} 2.283034{col 37}{space 1}   -1.92{col 46}{space 3}0.056{col 54}{space 4} -8.85013{col 67}{space 3} .1045864
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q50          {txt}{c |}
+{space 9}inc {c |}{col 14}{res}{space 2} .3239283{col 26}{space 2} .0412722{col 37}{space 1}    7.85{col 46}{space 3}0.000{col 54}{space 4} .2429876{col 67}{space 3} .4048691
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.2443716{col 26}{space 2}  .219422{col 37}{space 1}   -1.11{col 46}{space 3}0.266{col 54}{space 4}-.6746896{col 67}{space 3} .1859464
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2} .0047983{col 26}{space 2} .0029095{col 37}{space 1}    1.65{col 46}{space 3}0.099{col 54}{space 4}-.0009076{col 67}{space 3} .0105042
+{txt}{space 7}e401k {c |}{col 14}{res}{space 2} 2.597726{col 26}{space 2}  .583384{col 37}{space 1}    4.45{col 46}{space 3}0.000{col 54}{space 4} 1.453626{col 67}{space 3} 3.741826
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.572832{col 26}{space 2} 4.122058{col 37}{space 1}   -0.87{col 46}{space 3}0.386{col 54}{space 4}-11.65678{col 67}{space 3} 4.511116
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q75          {txt}{c |}
+{space 9}inc {c |}{col 14}{res}{space 2}  .797724{col 26}{space 2} .0802618{col 37}{space 1}    9.94{col 46}{space 3}0.000{col 54}{space 4} .6403191{col 67}{space 3}  .955129
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-1.385644{col 26}{space 2} .5059874{col 37}{space 1}   -2.74{col 46}{space 3}0.006{col 54}{space 4}-2.377958{col 67}{space 3}-.3933296
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2}  .024192{col 26}{space 2} .0072692{col 37}{space 1}    3.33{col 46}{space 3}0.001{col 54}{space 4}  .009936{col 67}{space 3} .0384481
+{txt}{space 7}e401k {c |}{col 14}{res}{space 2} 4.460003{col 26}{space 2} 1.574395{col 37}{space 1}    2.83{col 46}{space 3}0.005{col 54}{space 4} 1.372388{col 67}{space 3} 7.547618
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 7.538962{col 26}{space 2} 8.696256{col 37}{space 1}    0.87{col 46}{space 3}0.386{col 54}{space 4}-9.515646{col 67}{space 3} 24.59357
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q90          {txt}{c |}
+{space 9}inc {c |}{col 14}{res}{space 2} 1.291106{col 26}{space 2} .1414709{col 37}{space 1}    9.13{col 46}{space 3}0.000{col 54}{space 4} 1.013661{col 67}{space 3} 1.568551
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-3.578749{col 26}{space 2} 1.069731{col 37}{space 1}   -3.35{col 46}{space 3}0.001{col 54}{space 4}-5.676644{col 67}{space 3}-1.480853
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2} .0605388{col 26}{space 2} .0145766{col 37}{space 1}    4.15{col 46}{space 3}0.000{col 54}{space 4}  .031952{col 67}{space 3} .0891256
+{txt}{space 7}e401k {c |}{col 14}{res}{space 2} 6.001453{col 26}{space 2} 2.454892{col 37}{space 1}    2.44{col 46}{space 3}0.015{col 54}{space 4} 1.187056{col 67}{space 3} 10.81585
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 37.26841{col 26}{space 2} 19.22262{col 37}{space 1}    1.94{col 46}{space 3}0.053{col 54}{space 4}-.4299115{col 67}{space 3} 74.96672
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. 
+. //2e)
+. 
+. sqreg nettfa e401k, nolog q(0.1 0.25 0.5 0.75 0.9) reps(40)
+{res}
+{txt}Simultaneous quantile regression{col 53}Number of obs = {res}     2,017
+{txt}  bootstrap({res}40{txt}) SEs{col 53}.10 Pseudo R2 = {res}    0.0006
+{txt}{col 53}.25 Pseudo R2 = {res}    0.0014
+{txt}{col 53}.50 Pseudo R2 = {res}    0.0240
+{txt}{col 53}.75 Pseudo R2 = {res}    0.0415
+{txt}{col 53}.90 Pseudo R2 = {res}    0.0359
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}   Bootstrap
+{col 1}      nettfa{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q10          {txt}{c |}
+{space 7}e401k {c |}{col 14}{res}{space 2} .8299999{col 26}{space 2} .7196589{col 37}{space 1}    1.15{col 46}{space 3}0.249{col 54}{space 4}-.5813534{col 67}{space 3} 2.241353
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}     -4.5{col 26}{space 2} .5314198{col 37}{space 1}   -8.47{col 46}{space 3}0.000{col 54}{space 4} -5.54219{col 67}{space 3} -3.45781
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q25          {txt}{c |}
+{space 7}e401k {c |}{col 14}{res}{space 2}     .676{col 26}{space 2} .2596584{col 37}{space 1}    2.60{col 46}{space 3}0.009{col 54}{space 4} .1667731{col 67}{space 3} 1.185227
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}    -.476{col 26}{space 2} .1374828{col 37}{space 1}   -3.46{col 46}{space 3}0.001{col 54}{space 4}-.7456233{col 67}{space 3}-.2063767
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q50          {txt}{c |}
+{space 7}e401k {c |}{col 14}{res}{space 2}    6.549{col 26}{space 2} .6619457{col 37}{space 1}    9.89{col 46}{space 3}0.000{col 54}{space 4} 5.250831{col 67}{space 3}  7.84717
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}      .35{col 26}{space 2} .0844797{col 37}{space 1}    4.14{col 46}{space 3}0.000{col 54}{space 4} .1843233{col 67}{space 3} .5156767
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q75          {txt}{c |}
+{space 7}e401k {c |}{col 14}{res}{space 2}   19.505{col 26}{space 2}  2.24715{col 37}{space 1}    8.68{col 46}{space 3}0.000{col 54}{space 4} 15.09802{col 67}{space 3} 23.91198
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}    6.149{col 26}{space 2} .8087673{col 37}{space 1}    7.60{col 46}{space 3}0.000{col 54}{space 4} 4.562893{col 67}{space 3} 7.735108
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}q90          {txt}{c |}
+{space 7}e401k {c |}{col 14}{res}{space 2}     32.1{col 26}{space 2} 4.829553{col 37}{space 1}    6.65{col 46}{space 3}0.000{col 54}{space 4} 22.62856{col 67}{space 3} 41.57144
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}     27.4{col 26}{space 2} 2.111272{col 37}{space 1}   12.98{col 46}{space 3}0.000{col 54}{space 4}  23.2595{col 67}{space 3}  31.5405
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\andre\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 2\Exercise 2 Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}18 Mar 2020, 17:28:27
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

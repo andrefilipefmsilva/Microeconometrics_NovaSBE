@@ -1,0 +1,353 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 3\Log_Exercise_1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}27 Apr 2020, 10:28:44
+
+{com}. do "C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 3\Exercise_1.do"
+{txt}
+{com}. // Exercise 1c
+. 
+. xtset nr year
+{res}{txt}{col 8}panel variable:  {res}nr (strongly balanced)
+{txt}{col 9}time variable:  {res}{col 25}year, 1980 to 1987
+{txt}{col 17}delta:  {res}1 unit
+{txt}
+{com}. 
+. xttab year
+
+                  {txt}Overall             Between            Within
+     year {c |}    Freq.  Percent      Freq.  Percent        Percent
+{hline 10}{c +}{hline 53}
+     1980 {c |}{res}     545     12.50       545    100.00          12.50
+{txt}     1981 {c |}{res}     545     12.50       545    100.00          12.50
+{txt}     1982 {c |}{res}     545     12.50       545    100.00          12.50
+{txt}     1983 {c |}{res}     545     12.50       545    100.00          12.50
+{txt}     1984 {c |}{res}     545     12.50       545    100.00          12.50
+{txt}     1985 {c |}{res}     545     12.50       545    100.00          12.50
+{txt}     1986 {c |}{res}     545     12.50       545    100.00          12.50
+{txt}     1987 {c |}{res}     545     12.50       545    100.00          12.50
+{txt}{hline 10}{c +}{hline 53}
+    Total {c |}{res}    4360    100.00      4360    800.00          12.50
+                               {txt}(n = {res}545{txt})
+
+{com}. egen nobs = count(year), by(nr) 
+{txt}
+{com}. xtdescribe
+
+      {txt}nr:  {res}13{txt}, {res}17{txt}, ..., {res}12548                                {txt}n ={res}        545
+    {txt}year:  {res}1980, 1981, ..., 1987                             {txt}T ={res}          8
+           {txt}Delta(year) = {res}1 unit
+           {txt}Span(year)  = {res}8 periods
+           {txt}(nr*year uniquely identifies each observation)
+
+Distribution of T_i:   min      5%     25%       50%       75%     95%     max
+                    {res}     8       8       8         8         8       8       8
+
+{txt}{col 6}Freq.  Percent    Cum. {c |}  Pattern
+ {hline 27}{c +}{c -}{c -}{hline 8}
+{res}      545    100.00  100.00{txt} {c |}  {res}11111111
+{txt} {hline 27}{c +}{c -}{c -}{hline 8}
+{res}      545    100.00        {txt} {c |}  {res}XXXXXXXX
+{txt}
+{com}. ** to check if panel is balanced. We see that it is perfectly balanced.
+. 
+. reg lwage d81 d82 d83 d84 d85 d86 d87 exper expersq married union black hisp educ, vce(cluster nr)
+
+{txt}Linear regression                               Number of obs     = {res}     4,360
+                                                {txt}F(14, 544)        =  {res}    47.10
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.1893
+                                                {txt}Root MSE          =    {res} .48033
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:545} clusters in nr)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}d81 {c |}{col 14}{res}{space 2}   .05832{col 26}{space 2}  .028228{col 37}{space 1}    2.07{col 46}{space 3}0.039{col 54}{space 4} .0028707{col 67}{space 3} .1137693
+{txt}{space 9}d82 {c |}{col 14}{res}{space 2} .0627744{col 26}{space 2} .0369735{col 37}{space 1}    1.70{col 46}{space 3}0.090{col 54}{space 4}-.0098538{col 67}{space 3} .1354027
+{txt}{space 9}d83 {c |}{col 14}{res}{space 2} .0620117{col 26}{space 2}  .046248{col 37}{space 1}    1.34{col 46}{space 3}0.181{col 54}{space 4}-.0288348{col 67}{space 3} .1528583
+{txt}{space 9}d84 {c |}{col 14}{res}{space 2} .0904672{col 26}{space 2}  .057988{col 37}{space 1}    1.56{col 46}{space 3}0.119{col 54}{space 4}-.0234407{col 67}{space 3}  .204375
+{txt}{space 9}d85 {c |}{col 14}{res}{space 2} .1092463{col 26}{space 2} .0668474{col 37}{space 1}    1.63{col 46}{space 3}0.103{col 54}{space 4}-.0220644{col 67}{space 3} .2405569
+{txt}{space 9}d86 {c |}{col 14}{res}{space 2} .1419595{col 26}{space 2} .0762348{col 37}{space 1}    1.86{col 46}{space 3}0.063{col 54}{space 4}-.0077911{col 67}{space 3} .2917102
+{txt}{space 9}d87 {c |}{col 14}{res}{space 2} .1738334{col 26}{space 2} .0852056{col 37}{space 1}    2.04{col 46}{space 3}0.042{col 54}{space 4} .0064611{col 67}{space 3} .3412057
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0672345{col 26}{space 2} .0195958{col 37}{space 1}    3.43{col 46}{space 3}0.001{col 54}{space 4} .0287417{col 67}{space 3} .1057273
+{txt}{space 5}expersq {c |}{col 14}{res}{space 2}-.0024117{col 26}{space 2} .0010252{col 37}{space 1}   -2.35{col 46}{space 3}0.019{col 54}{space 4}-.0044255{col 67}{space 3}-.0003979
+{txt}{space 5}married {c |}{col 14}{res}{space 2}  .108253{col 26}{space 2}  .026034{col 37}{space 1}    4.16{col 46}{space 3}0.000{col 54}{space 4} .0571135{col 67}{space 3} .1593924
+{txt}{space 7}union {c |}{col 14}{res}{space 2} .1824613{col 26}{space 2} .0274435{col 37}{space 1}    6.65{col 46}{space 3}0.000{col 54}{space 4} .1285531{col 67}{space 3} .2363694
+{txt}{space 7}black {c |}{col 14}{res}{space 2}-.1392342{col 26}{space 2} .0505238{col 37}{space 1}   -2.76{col 46}{space 3}0.006{col 54}{space 4}-.2384798{col 67}{space 3}-.0399887
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .0160195{col 26}{space 2} .0390781{col 37}{space 1}    0.41{col 46}{space 3}0.682{col 54}{space 4} -.060743{col 67}{space 3}  .092782
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} .0913498{col 26}{space 2} .0110822{col 37}{space 1}    8.24{col 46}{space 3}0.000{col 54}{space 4} .0695807{col 67}{space 3} .1131189
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0920558{col 26}{space 2} .1609365{col 37}{space 1}    0.57{col 46}{space 3}0.568{col 54}{space 4}-.2240772{col 67}{space 3} .4081889
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. test union
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}union = 0{p_end}
+
+{txt}       F(  1,   544) ={res}   44.20
+{txt}{col 13}Prob > F ={res}    0.0000
+{txt}
+{com}. 
+. // Exercise 1d
+. 
+. regress D.(lwage d82 d83 d84 d85 d86 d87 exper expersq married union black hisp educ), vce(cluster nr) noconstant
+{txt}note: D.black omitted because of collinearity
+note: D.hisp omitted because of collinearity
+note: D.educ omitted because of collinearity
+
+Linear regression                               Number of obs     = {res}     3,815
+                                                {txt}F(10, 544)        =  {res}    44.99
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0289
+                                                {txt}Root MSE          =    {res} .44289
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:545} clusters in nr)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     D.lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}d82 {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.0481988{col 26}{space 2} .0367812{col 37}{space 1}   -1.31{col 46}{space 3}0.191{col 54}{space 4}-.1204493{col 67}{space 3} .0240517
+{txt}{space 12} {c |}
+{space 9}d83 {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.0961067{col 26}{space 2} .0593841{col 37}{space 1}   -1.62{col 46}{space 3}0.106{col 54}{space 4}-.2127569{col 67}{space 3} .0205435
+{txt}{space 12} {c |}
+{space 9}d84 {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.1083499{col 26}{space 2} .0827845{col 37}{space 1}   -1.31{col 46}{space 3}0.191{col 54}{space 4}-.2709663{col 67}{space 3} .0542665
+{txt}{space 12} {c |}
+{space 9}d85 {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.1291513{col 26}{space 2} .1081993{col 37}{space 1}   -1.19{col 46}{space 3}0.233{col 54}{space 4}-.3416909{col 67}{space 3} .0833884
+{txt}{space 12} {c |}
+{space 9}d86 {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.1276442{col 26}{space 2} .1331516{col 37}{space 1}   -0.96{col 46}{space 3}0.338{col 54}{space 4}-.3891985{col 67}{space 3} .1339101
+{txt}{space 12} {c |}
+{space 9}d87 {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.1109584{col 26}{space 2} .1565958{col 37}{space 1}   -0.71{col 46}{space 3}0.479{col 54}{space 4} -.418565{col 67}{space 3} .1966481
+{txt}{space 12} {c |}
+{space 7}exper {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2} .1559977{col 26}{space 2} .0256573{col 37}{space 1}    6.08{col 46}{space 3}0.000{col 54}{space 4} .1055983{col 67}{space 3} .2063971
+{txt}{space 12} {c |}
+{space 5}expersq {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}-.0057546{col 26}{space 2} .0009443{col 37}{space 1}   -6.09{col 46}{space 3}0.000{col 54}{space 4}-.0076094{col 67}{space 3}-.0038998
+{txt}{space 12} {c |}
+{space 5}married {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2} .0381433{col 26}{space 2}  .024233{col 37}{space 1}    1.57{col 46}{space 3}0.116{col 54}{space 4}-.0094584{col 67}{space 3} .0857451
+{txt}{space 12} {c |}
+{space 7}union {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2} .0411497{col 26}{space 2} .0219043{col 37}{space 1}    1.88{col 46}{space 3}0.061{col 54}{space 4}-.0018777{col 67}{space 3}  .084177
+{txt}{space 12} {c |}
+{space 7}black {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 12} {c |}
+{space 8}hisp {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 12} {c |}
+{space 8}educ {c |}
+{space 9}D1. {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. //Exercise 1f
+. 
+. *Within Estimator
+. xtreg lwage d81 d82 d83 d84 d85 d86 d87 exper expersq married union, fe vce(cluster nr)
+{p 0 6 2}{txt}note: exper omitted because of collinearity{p_end}
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     4,360
+{txt}Group variable: {res}nr{txt}{col 49}Number of groups{col 67}={col 69}{res}       545
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.1806{col 63}{txt}min{col 67}={col 69}{res}         8
+{txt}     between = {res}0.0286{col 63}{txt}avg{col 67}={col 69}{res}       8.0
+{txt}     overall = {res}0.0888{col 63}{txt}max{col 67}={col 69}{res}         8
+
+{txt}{col 49}F({res}10{txt},{res}544{txt}){col 67}={col 70}{res}    46.59
+{txt}corr(u_i, Xb){col 16}= {res}-0.1222{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:545} clusters in nr)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}d81 {c |}{col 14}{res}{space 2} .1511912{col 26}{space 2} .0255648{col 37}{space 1}    5.91{col 46}{space 3}0.000{col 54}{space 4} .1009733{col 67}{space 3} .2014091
+{txt}{space 9}d82 {c |}{col 14}{res}{space 2} .2529709{col 26}{space 2} .0286624{col 37}{space 1}    8.83{col 46}{space 3}0.000{col 54}{space 4} .1966684{col 67}{space 3} .3092734
+{txt}{space 9}d83 {c |}{col 14}{res}{space 2} .3544437{col 26}{space 2} .0348608{col 37}{space 1}   10.17{col 46}{space 3}0.000{col 54}{space 4} .2859655{col 67}{space 3}  .422922
+{txt}{space 9}d84 {c |}{col 14}{res}{space 2} .4901148{col 26}{space 2} .0454581{col 37}{space 1}   10.78{col 46}{space 3}0.000{col 54}{space 4} .4008199{col 67}{space 3} .5794097
+{txt}{space 9}d85 {c |}{col 14}{res}{space 2} .6174822{col 26}{space 2} .0568088{col 37}{space 1}   10.87{col 46}{space 3}0.000{col 54}{space 4} .5058908{col 67}{space 3} .7290737
+{txt}{space 9}d86 {c |}{col 14}{res}{space 2} .7654965{col 26}{space 2}  .071244{col 37}{space 1}   10.74{col 46}{space 3}0.000{col 54}{space 4} .6255495{col 67}{space 3} .9054436
+{txt}{space 9}d87 {c |}{col 14}{res}{space 2} .9250249{col 26}{space 2} .0840563{col 37}{space 1}   11.00{col 46}{space 3}0.000{col 54}{space 4} .7599103{col 67}{space 3}  1.09014
+{txt}{space 7}exper {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 5}expersq {c |}{col 14}{res}{space 2}-.0051855{col 26}{space 2} .0008102{col 37}{space 1}   -6.40{col 46}{space 3}0.000{col 54}{space 4}-.0067771{col 67}{space 3}-.0035939
+{txt}{space 5}married {c |}{col 14}{res}{space 2} .0466804{col 26}{space 2} .0210038{col 37}{space 1}    2.22{col 46}{space 3}0.027{col 54}{space 4} .0054218{col 67}{space 3} .0879389
+{txt}{space 7}union {c |}{col 14}{res}{space 2} .0800019{col 26}{space 2} .0227431{col 37}{space 1}    3.52{col 46}{space 3}0.000{col 54}{space 4} .0353268{col 67}{space 3} .1246769
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.426019{col 26}{space 2} .0209824{col 37}{space 1}   67.96{col 46}{space 3}0.000{col 54}{space 4} 1.384802{col 67}{space 3} 1.467235
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .39176195
+     {txt}sigma_e {c |} {res} .35099001
+         {txt}rho {c |} {res} .55472816{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. 
+. *Random Effects Estimator
+. xtreg lwage d81 d82 d83 d84 d85 d86 d87 exper expersq married union, re vce(cluster nr) theta
+{res}
+{txt}Random-effects GLS regression                   Number of obs     = {res}     4,360
+{txt}Group variable: {res}nr                              {txt}Number of groups  = {res}       545
+
+{txt}R-sq:                                           Obs per group:
+     within  = {res}0.1799                                         {txt}min = {res}         8
+{txt}     between = {res}0.0740                                         {txt}avg = {res}       8.0
+{txt}     overall = {res}0.1178                                         {txt}max = {res}         8
+
+                                                {txt}Wald chi2({res}11{txt})     =  {res}   503.06
+{txt}corr(u_i, X)   = {res}0{txt} (assumed)                    Prob > chi2       =     {res}0.0000
+{txt}theta          = {res}.66699928
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:545} clusters in nr)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}d81 {c |}{col 14}{res}{space 2}  .095496{col 26}{space 2} .0266186{col 37}{space 1}    3.59{col 46}{space 3}0.000{col 54}{space 4} .0433244{col 67}{space 3} .1476676
+{txt}{space 9}d82 {c |}{col 14}{res}{space 2} .1417833{col 26}{space 2} .0318411{col 37}{space 1}    4.45{col 46}{space 3}0.000{col 54}{space 4}  .079376{col 67}{space 3} .2041907
+{txt}{space 9}d83 {c |}{col 14}{res}{space 2} .1872049{col 26}{space 2} .0381126{col 37}{space 1}    4.91{col 46}{space 3}0.000{col 54}{space 4} .1125055{col 67}{space 3} .2619044
+{txt}{space 9}d84 {c |}{col 14}{res}{space 2} .2669625{col 26}{space 2} .0470808{col 37}{space 1}    5.67{col 46}{space 3}0.000{col 54}{space 4} .1746857{col 67}{space 3} .3592392
+{txt}{space 9}d85 {c |}{col 14}{res}{space 2} .3390173{col 26}{space 2} .0535182{col 37}{space 1}    6.33{col 46}{space 3}0.000{col 54}{space 4} .2341235{col 67}{space 3}  .443911
+{txt}{space 9}d86 {c |}{col 14}{res}{space 2} .4311008{col 26}{space 2} .0598931{col 37}{space 1}    7.20{col 46}{space 3}0.000{col 54}{space 4} .3137125{col 67}{space 3} .5484891
+{txt}{space 9}d87 {c |}{col 14}{res}{space 2} .5327748{col 26}{space 2} .0667754{col 37}{space 1}    7.98{col 46}{space 3}0.000{col 54}{space 4} .4018974{col 67}{space 3} .6636522
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0515641{col 26}{space 2} .0149388{col 37}{space 1}    3.45{col 46}{space 3}0.001{col 54}{space 4} .0222845{col 67}{space 3} .0808437
+{txt}{space 5}expersq {c |}{col 14}{res}{space 2} -.004965{col 26}{space 2} .0007834{col 37}{space 1}   -6.34{col 46}{space 3}0.000{col 54}{space 4}-.0065004{col 67}{space 3}-.0034295
+{txt}{space 5}married {c |}{col 14}{res}{space 2} .0721855{col 26}{space 2} .0191271{col 37}{space 1}    3.77{col 46}{space 3}0.000{col 54}{space 4} .0346971{col 67}{space 3} .1096739
+{txt}{space 7}union {c |}{col 14}{res}{space 2} .1016308{col 26}{space 2} .0209184{col 37}{space 1}    4.86{col 46}{space 3}0.000{col 54}{space 4} .0606315{col 67}{space 3} .1426302
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.257799{col 26}{space 2} .0471316{col 37}{space 1}   26.69{col 46}{space 3}0.000{col 54}{space 4} 1.165423{col 67}{space 3} 1.350175
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .35138439
+     {txt}sigma_e {c |} {res} .35099001
+         {txt}rho {c |} {res} .50056149{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. 
+. //Exercise 1g
+. xtreg lwage d81 d82 d83 d84 d85 d86 d87 exper expersq married union, fe
+{p 0 6 2}{txt}note: exper omitted because of collinearity{p_end}
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     4,360
+{txt}Group variable: {res}nr{txt}{col 49}Number of groups{col 67}={col 69}{res}       545
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.1806{col 63}{txt}min{col 67}={col 69}{res}         8
+{txt}     between = {res}0.0286{col 63}{txt}avg{col 67}={col 69}{res}       8.0
+{txt}     overall = {res}0.0888{col 63}{txt}max{col 67}={col 69}{res}         8
+
+{txt}{col 49}F({res}10{txt},{res}3805{txt}){col 67}={col 70}{res}    83.85
+{txt}corr(u_i, Xb){col 16}= {res}-0.1222{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}d81 {c |}{col 14}{res}{space 2} .1511912{col 26}{space 2} .0219489{col 37}{space 1}    6.89{col 46}{space 3}0.000{col 54}{space 4} .1081584{col 67}{space 3}  .194224
+{txt}{space 9}d82 {c |}{col 14}{res}{space 2} .2529709{col 26}{space 2} .0244185{col 37}{space 1}   10.36{col 46}{space 3}0.000{col 54}{space 4} .2050963{col 67}{space 3} .3008454
+{txt}{space 9}d83 {c |}{col 14}{res}{space 2} .3544437{col 26}{space 2} .0292419{col 37}{space 1}   12.12{col 46}{space 3}0.000{col 54}{space 4} .2971125{col 67}{space 3}  .411775
+{txt}{space 9}d84 {c |}{col 14}{res}{space 2} .4901148{col 26}{space 2} .0362266{col 37}{space 1}   13.53{col 46}{space 3}0.000{col 54}{space 4} .4190893{col 67}{space 3} .5611402
+{txt}{space 9}d85 {c |}{col 14}{res}{space 2} .6174822{col 26}{space 2} .0452435{col 37}{space 1}   13.65{col 46}{space 3}0.000{col 54}{space 4} .5287784{col 67}{space 3} .7061861
+{txt}{space 9}d86 {c |}{col 14}{res}{space 2} .7654965{col 26}{space 2} .0561277{col 37}{space 1}   13.64{col 46}{space 3}0.000{col 54}{space 4} .6554532{col 67}{space 3} .8755399
+{txt}{space 9}d87 {c |}{col 14}{res}{space 2} .9250249{col 26}{space 2} .0687731{col 37}{space 1}   13.45{col 46}{space 3}0.000{col 54}{space 4} .7901892{col 67}{space 3} 1.059861
+{txt}{space 7}exper {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 5}expersq {c |}{col 14}{res}{space 2}-.0051855{col 26}{space 2} .0007044{col 37}{space 1}   -7.36{col 46}{space 3}0.000{col 54}{space 4}-.0065666{col 67}{space 3}-.0038044
+{txt}{space 5}married {c |}{col 14}{res}{space 2} .0466804{col 26}{space 2} .0183104{col 37}{space 1}    2.55{col 46}{space 3}0.011{col 54}{space 4} .0107812{col 67}{space 3} .0825796
+{txt}{space 7}union {c |}{col 14}{res}{space 2} .0800019{col 26}{space 2} .0193103{col 37}{space 1}    4.14{col 46}{space 3}0.000{col 54}{space 4} .0421423{col 67}{space 3} .1178614
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.426019{col 26}{space 2} .0183415{col 37}{space 1}   77.75{col 46}{space 3}0.000{col 54}{space 4} 1.390058{col 67}{space 3} 1.461979
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .39176195
+     {txt}sigma_e {c |} {res} .35099001
+         {txt}rho {c |} {res} .55472816{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}544{txt}, {res}3805{txt}) = {res}9.16{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. est store FE
+{txt}
+{com}. 
+. xtreg lwage d81 d82 d83 d84 d85 d86 d87 exper expersq married union, re theta
+{res}
+{txt}Random-effects GLS regression                   Number of obs     = {res}     4,360
+{txt}Group variable: {res}nr                              {txt}Number of groups  = {res}       545
+
+{txt}R-sq:                                           Obs per group:
+     within  = {res}0.1799                                         {txt}min = {res}         8
+{txt}     between = {res}0.0740                                         {txt}avg = {res}       8.0
+{txt}     overall = {res}0.1178                                         {txt}max = {res}         8
+
+                                                {txt}Wald chi2({res}11{txt})     =  {res}   868.84
+{txt}corr(u_i, X)   = {res}0{txt} (assumed)                    Prob > chi2       =     {res}0.0000
+{txt}theta          = {res}.66699928
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       lwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}d81 {c |}{col 14}{res}{space 2}  .095496{col 26}{space 2} .0241614{col 37}{space 1}    3.95{col 46}{space 3}0.000{col 54}{space 4} .0481406{col 67}{space 3} .1428514
+{txt}{space 9}d82 {c |}{col 14}{res}{space 2} .1417833{col 26}{space 2}  .030663{col 37}{space 1}    4.62{col 46}{space 3}0.000{col 54}{space 4} .0816849{col 67}{space 3} .2018818
+{txt}{space 9}d83 {c |}{col 14}{res}{space 2} .1872049{col 26}{space 2} .0385766{col 37}{space 1}    4.85{col 46}{space 3}0.000{col 54}{space 4} .1115961{col 67}{space 3} .2628138
+{txt}{space 9}d84 {c |}{col 14}{res}{space 2} .2669625{col 26}{space 2} .0468769{col 37}{space 1}    5.69{col 46}{space 3}0.000{col 54}{space 4} .1750853{col 67}{space 3} .3588396
+{txt}{space 9}d85 {c |}{col 14}{res}{space 2} .3390173{col 26}{space 2} .0552858{col 37}{space 1}    6.13{col 46}{space 3}0.000{col 54}{space 4} .2306591{col 67}{space 3} .4473755
+{txt}{space 9}d86 {c |}{col 14}{res}{space 2} .4311008{col 26}{space 2} .0637157{col 37}{space 1}    6.77{col 46}{space 3}0.000{col 54}{space 4} .3062203{col 67}{space 3} .5559813
+{txt}{space 9}d87 {c |}{col 14}{res}{space 2} .5327748{col 26}{space 2} .0721889{col 37}{space 1}    7.38{col 46}{space 3}0.000{col 54}{space 4} .3912871{col 67}{space 3} .6742625
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0515641{col 26}{space 2} .0145574{col 37}{space 1}    3.54{col 46}{space 3}0.000{col 54}{space 4} .0230321{col 67}{space 3}  .080096
+{txt}{space 5}expersq {c |}{col 14}{res}{space 2} -.004965{col 26}{space 2} .0006907{col 37}{space 1}   -7.19{col 46}{space 3}0.000{col 54}{space 4}-.0063187{col 67}{space 3}-.0036113
+{txt}{space 5}married {c |}{col 14}{res}{space 2} .0721855{col 26}{space 2} .0168833{col 37}{space 1}    4.28{col 46}{space 3}0.000{col 54}{space 4} .0390948{col 67}{space 3} .1052763
+{txt}{space 7}union {c |}{col 14}{res}{space 2} .1016308{col 26}{space 2} .0179951{col 37}{space 1}    5.65{col 46}{space 3}0.000{col 54}{space 4} .0663611{col 67}{space 3} .1369006
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.257799{col 26}{space 2} .0436769{col 37}{space 1}   28.80{col 46}{space 3}0.000{col 54}{space 4} 1.172194{col 67}{space 3} 1.343404
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .35138439
+     {txt}sigma_e {c |} {res} .35099001
+         {txt}rho {c |} {res} .50056149{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. est store RE
+{txt}
+{com}. 
+. hausman FE RE, sigmamore
+
+{txt}{p 0 8}Note: the rank of the differenced variance matrix ({result:4}) does not equal the number of coefficients being tested ({result:10}); be sure this is what you expect, or there may be problems computing the test.  Examine the output of your estimators for anything unexpected and possibly consider scaling your variables so that the coefficients are on a similar scale.
+
+{col 18}{hline 4} Coefficients {hline 4}
+{col 14}{c |}{col 21}(b){col 34}(B){col 49}(b-B){col 59}sqrt(diag(V_b-V_B))
+{col 14}{c |}{col 17}     FE     {col 30}     RE     {col 46}Difference{col 66}S.E.
+{hline 13}{c +}{hline 64}
+{space 9}d81 {c |}{res}{col 18} .1511912{col 31}  .095496{col 47} .0556952{col 63}        .
+{txt}{space 9}d82 {c |}{res}{col 18} .2529709{col 31} .1417833{col 47} .1111875{col 63}        .
+{txt}{space 9}d83 {c |}{res}{col 18} .3544437{col 31} .1872049{col 47} .1672388{col 63}        .
+{txt}{space 9}d84 {c |}{res}{col 18} .4901148{col 31} .2669625{col 47} .2231523{col 63}        .
+{txt}{space 9}d85 {c |}{res}{col 18} .6174822{col 31} .3390173{col 47} .2784649{col 63}        .
+{txt}{space 9}d86 {c |}{res}{col 18} .7654965{col 31} .4311008{col 47} .3343957{col 63}        .
+{txt}{space 9}d87 {c |}{res}{col 18} .9250249{col 31} .5327748{col 47} .3922501{col 63}        .
+{txt}{space 5}expersq {c |}{res}{col 18}-.0051855{col 31} -.004965{col 47}-.0002205{col 63} .0001468
+{txt}{space 5}married {c |}{res}{col 18} .0466804{col 31} .0721855{col 47}-.0255052{col 63} .0071984
+{txt}{space 7}union {c |}{res}{col 18} .0800019{col 31} .1016308{col 47} -.021629{col 63} .0071299
+{txt}{hline 13}{c BT}{hline 64}
+{ralign 78:b = consistent under Ho and Ha; obtained from xtreg}
+{ralign 78:B = inconsistent under Ha, efficient under Ho; obtained from xtreg}
+
+    Test:  Ho:  difference in coefficients not systematic
+
+{ralign 25:chi2({res:4})} = (b-B)'[(V_b-V_B)^(-1)](b-B)
+{col 27}=  {res}     23.24
+{txt}{col 17}Prob>chi2 =  {res}    0.0001
+{txt}{col 17}(V_b-V_B is not positive definite)
+
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 3\Log_Exercise_1.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}27 Apr 2020, 10:28:56
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

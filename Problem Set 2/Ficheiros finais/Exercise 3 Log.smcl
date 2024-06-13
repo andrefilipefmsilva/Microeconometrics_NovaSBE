@@ -1,0 +1,366 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\andre\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 2\Exercise 3 Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}18 Mar 2020, 18:42:53
+
+{com}. do "C:\Users\andre\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. set more off
+{txt}
+{com}. * Data is already in long format
+. 
+. 
+. //3b
+. 
+. bysort mode_travel: sum gc ttme hinc
+
+{txt}{hline}
+-> mode_travel = AIR
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 10}gc {c |}{res}        210    102.6476    30.57503         56        197
+{txt}{space 8}ttme {c |}{res}        210    61.00952    15.71943          5         99
+{txt}{space 8}hinc {c |}{res}        210    34.54762    19.71132          2         72
+
+{txt}{hline}
+-> mode_travel = BUS
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 10}gc {c |}{res}        210    115.2571    44.93441         45        222
+{txt}{space 8}ttme {c |}{res}        210    41.65714    12.07737          5         60
+{txt}{space 8}hinc {c |}{res}        210    34.54762    19.71132          2         72
+
+{txt}{hline}
+-> mode_travel = CAR
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 10}gc {c |}{res}        210    95.41429    46.82743         30        238
+{txt}{space 8}ttme {c |}{res}        210           0           0          0          0
+{txt}{space 8}hinc {c |}{res}        210    34.54762    19.71132          2         72
+
+{txt}{hline}
+-> mode_travel = TRAIN
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 10}gc {c |}{res}        210       130.2    58.23454         42        269
+{txt}{space 8}ttme {c |}{res}        210    35.69048    12.27922          1         99
+{txt}{space 8}hinc {c |}{res}        210    34.54762    19.71132          2         72
+
+{txt}
+{com}. *asdoc bysort mode_travel: sum gc ttme hinc, save(exercise1b.doc)
+. 
+. 
+. //3c
+. sort id
+{txt}
+{com}. 
+. list in 1/4
+{txt}
+     {c TLC}{hline 8}{c -}{hline 6}{c -}{hline 4}{c -}{hline 6}{c -}{hline 4}{c -}{hline 10}{c -}{hline 10}{c TRC}
+     {c |} {res}choice   ttme   gc   hinc   id   mode_t~l   choice~l {txt}{c |}
+     {c LT}{hline 8}{c -}{hline 6}{c -}{hline 4}{c -}{hline 6}{c -}{hline 4}{c -}{hline 10}{c -}{hline 10}{c RT}
+  1. {c |} {res}     1      0   30     35    1        CAR        CAR {txt}{c |}
+  2. {c |} {res}     0     35   70     35    1        BUS        CAR {txt}{c |}
+  3. {c |} {res}     0     69   70     35    1        AIR        CAR {txt}{c |}
+  4. {c |} {res}     0     34   71     35    1      TRAIN        CAR {txt}{c |}
+     {c BLC}{hline 8}{c -}{hline 6}{c -}{hline 4}{c -}{hline 6}{c -}{hline 4}{c -}{hline 10}{c -}{hline 10}{c BRC}
+
+{com}. 
+. asclogit choice gc ttme, case(id) alternatives(mode_travel) casevars(hinc) basealternative(3)
+{res}
+{txt}Iteration 0:{space 3}log likelihood = {res:-35779.961}  
+Iteration 1:{space 3}log likelihood = {res:-12808.092}  (backed up)
+Iteration 2:{space 3}log likelihood = {res:-1093.5475}  (backed up)
+Iteration 3:{space 3}log likelihood = {res:-434.87256}  
+Iteration 4:{space 3}log likelihood = {res:-369.67412}  
+Iteration 5:{space 3}log likelihood = {res:-209.62163}  
+Iteration 6:{space 3}log likelihood = {res:-190.08697}  
+Iteration 7:{space 3}log likelihood = {res:-189.52698}  
+Iteration 8:{space 3}log likelihood = {res:-189.52515}  
+Iteration 9:{space 3}log likelihood = {res:-189.52515}  
+{res}
+{txt}Alternative-specific conditional logit{col 48}Number of obs{col 67}= {res}       840
+{txt}Case variable: id{col 48}Number of cases{col 67}= {res}       210
+
+{txt}Alternative variable: mode_travel{col 48}Alts per case: min = {res}         4
+{col 63}{txt}avg = {res}       4.0
+{col 63}{txt}max = {res}         4
+
+{txt}{col 51}Wald chi2({res}5{txt}){col 67}= {res}    105.78
+{txt}Log likelihood = {res}-189.52515{col 51}{txt}Prob > chi2{col 67}= {res}    0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      choice{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}mode_travel  {txt}{c |}
+{space 10}gc {c |}{col 14}{res}{space 2}-.0109274{col 26}{space 2} .0045878{col 37}{space 1}   -2.38{col 46}{space 3}0.017{col 54}{space 4}-.0199192{col 67}{space 3}-.0019355
+{txt}{space 8}ttme {c |}{col 14}{res}{space 2}-.0954606{col 26}{space 2} .0104732{col 37}{space 1}   -9.11{col 46}{space 3}0.000{col 54}{space 4}-.1159876{col 67}{space 3}-.0749335
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}AIR          {txt}{c |}
+{space 8}hinc {c |}{col 14}{res}{space 2}-.0053735{col 26}{space 2} .0115294{col 37}{space 1}   -0.47{col 46}{space 3}0.641{col 54}{space 4}-.0279707{col 67}{space 3} .0172237
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.874813{col 26}{space 2} .8020903{col 37}{space 1}    7.32{col 46}{space 3}0.000{col 54}{space 4} 4.302745{col 67}{space 3} 7.446882
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}BUS          {txt}{c |}
+{space 8}hinc {c |}{col 14}{res}{space 2}-.0285842{col 26}{space 2} .0154442{col 37}{space 1}   -1.85{col 46}{space 3}0.064{col 54}{space 4}-.0588542{col 67}{space 3} .0016859
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.130284{col 26}{space 2} .6763628{col 37}{space 1}    6.11{col 46}{space 3}0.000{col 54}{space 4} 2.804637{col 67}{space 3} 5.455931
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}{res}CAR         {col 14}{txt}{c |}  (base alternative)
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}TRAIN        {txt}{c |}
+{space 8}hinc {c |}{col 14}{res}{space 2}-.0565619{col 26}{space 2} .0139733{col 37}{space 1}   -4.05{col 46}{space 3}0.000{col 54}{space 4}-.0839491{col 67}{space 3}-.0291746
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.549857{col 26}{space 2} .6404244{col 37}{space 1}    8.67{col 46}{space 3}0.000{col 54}{space 4} 4.294648{col 67}{space 3} 6.805066
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. est store clogit1
+{txt}
+{com}. 
+. 
+. //3d
+. 
+. predict pasclogit, pr
+{txt}
+{com}. 
+. table mode_travel, contents(mean pasclogit)
+
+{txt}{hline 10}{c TT}{hline 15}
+ Mode_cat {c |} mean(pasclo~t)
+{hline 10}{c +}{hline 15}
+      AIR {c |}       {res}.2761905
+      {txt}BUS {c |}       {res}.1428571
+      {txt}CAR {c |}       {res}.2809524
+    {txt}TRAIN {c |}             {res}.3
+{txt}{hline 10}{c BT}{hline 15}
+
+{com}. tab choicetravel
+
+{txt}choicetrave {c |}
+          l {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        AIR {c |}{res}        232       27.62       27.62
+{txt}        BUS {c |}{res}        120       14.29       41.90
+{txt}        CAR {c |}{res}        236       28.10       70.00
+{txt}      TRAIN {c |}{res}        252       30.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        840      100.00
+{txt}
+{com}. 
+. //3e
+. est restore clogit1
+{txt}(results {stata estimates replay clogit1:clogit1} are active now)
+
+{com}. estat mfx, varlist(hinc) at(mean)
+{res}
+{txt}Pr(choice = AIR|1 selected) ={col 10}{res} .27068612
+{txt}{hline 13}{c TT}{hline 65}
+variable     {c |}{col 18}dp/dx{col 26}Std. Err.{col 39}z{col 45}P>|z|{col 52}[    95% C.I.    ]{col 77}X
+{hline 13}{c +}{hline 65}
+{res}{txt}{space 0}{res:{lalign 13:casevars}}{c |}{space 10}{space 10}{space 8}{space 8}{space 10}{space 10}{space 9}
+{space 0}{space 0}{ralign 12:hinc}{space 1}{c |}{space 1}{ralign 8:{res:{sf: .004085}}}{space 1}{space 1}{ralign 8:{res:{sf: .002059}}}{space 1}{space 1}{ralign 6:{res:{sf:  1.98}}}{space 1}{space 1}{ralign 6:{res:{sf: 0.047}}}{space 1}{space 1}{ralign 8:{res:{sf: .000049}}}{space 1}{space 1}{ralign 8:{res:{sf: .008121}}}{space 1}{space 1}{ralign 8:{res:{sf:  34.548}}}{space 0}
+{hline 13}{c BT}{hline 65}
+
+Pr(choice = BUS|1 selected) ={col 10}{res} .11723223
+{txt}{hline 13}{c TT}{hline 65}
+variable     {c |}{col 18}dp/dx{col 26}Std. Err.{col 39}z{col 45}P>|z|{col 52}[    95% C.I.    ]{col 77}X
+{hline 13}{c +}{hline 65}
+{res}{txt}{space 0}{res:{lalign 13:casevars}}{c |}{space 10}{space 10}{space 8}{space 8}{space 10}{space 10}{space 9}
+{space 0}{space 0}{ralign 12:hinc}{space 1}{c |}{space 1}{ralign 8:{res:{sf:-.000952}}}{space 1}{space 1}{ralign 8:{res:{sf: .001419}}}{space 1}{space 1}{ralign 6:{res:{sf: -0.67}}}{space 1}{space 1}{ralign 6:{res:{sf: 0.502}}}{space 1}{space 1}{ralign 8:{res:{sf:-.003734}}}{space 1}{space 1}{ralign 8:{res:{sf:  .00183}}}{space 1}{space 1}{ralign 8:{res:{sf:  34.548}}}{space 0}
+{hline 13}{c BT}{hline 65}
+
+Pr(choice = CAR|1 selected) ={col 10}{res}  .3352351
+{txt}{hline 13}{c TT}{hline 65}
+variable     {c |}{col 18}dp/dx{col 26}Std. Err.{col 39}z{col 45}P>|z|{col 52}[    95% C.I.    ]{col 77}X
+{hline 13}{c +}{hline 65}
+{res}{txt}{space 0}{res:{lalign 13:casevars}}{c |}{space 10}{space 10}{space 8}{space 8}{space 10}{space 10}{space 9}
+{space 0}{space 0}{ralign 12:hinc}{space 1}{c |}{space 1}{ralign 8:{res:{sf:  .00686}}}{space 1}{space 1}{ralign 8:{res:{sf: .002157}}}{space 1}{space 1}{ralign 6:{res:{sf:  3.18}}}{space 1}{space 1}{ralign 6:{res:{sf: 0.001}}}{space 1}{space 1}{ralign 8:{res:{sf: .002633}}}{space 1}{space 1}{ralign 8:{res:{sf: .011088}}}{space 1}{space 1}{ralign 8:{res:{sf:  34.548}}}{space 0}
+{hline 13}{c BT}{hline 65}
+
+Pr(choice = TRAIN|1 selected) ={col 10}{res} .27684656
+{txt}{hline 13}{c TT}{hline 65}
+variable     {c |}{col 18}dp/dx{col 26}Std. Err.{col 39}z{col 45}P>|z|{col 52}[    95% C.I.    ]{col 77}X
+{hline 13}{c +}{hline 65}
+{res}{txt}{space 0}{res:{lalign 13:casevars}}{c |}{space 10}{space 10}{space 8}{space 8}{space 10}{space 10}{space 9}
+{space 0}{space 0}{ralign 12:hinc}{space 1}{c |}{space 1}{ralign 8:{res:{sf:-.009993}}}{space 1}{space 1}{ralign 8:{res:{sf: .002404}}}{space 1}{space 1}{ralign 6:{res:{sf: -4.16}}}{space 1}{space 1}{ralign 6:{res:{sf: 0.000}}}{space 1}{space 1}{ralign 8:{res:{sf:-.014705}}}{space 1}{space 1}{ralign 8:{res:{sf:-.005282}}}{space 1}{space 1}{ralign 8:{res:{sf:  34.548}}}{space 0}
+{hline 13}{c BT}{hline 65}
+
+{com}. 
+. //3f
+. 
+. drop pasclogit
+{txt}
+{com}. drop _est_clogit1
+{txt}
+{com}. 
+. reshape wide choice ttme gc hinc choicetravel, i(id) j(mode_travel)
+{txt}(note: j = 1 2 3 4)
+
+Data{col 36}long{col 43}->{col 48}wide
+{hline 77}
+Number of obs.                 {res}     840   {txt}->{res}     210
+{txt}Number of variables            {res}       7   {txt}->{res}      21
+{txt}j variable (4 values)       {res}mode_travel   {txt}->   (dropped)
+xij variables:
+                                 {res}choice   {txt}->   {res}choice1 choice2 ... choice4
+                                   ttme   {txt}->   {res}ttme1 ttme2 ... ttme4
+                                     gc   {txt}->   {res}gc1 gc2 ... gc4
+                                   hinc   {txt}->   {res}hinc1 hinc2 ... hinc4
+                           choicetravel   {txt}->   {res}choicetravel1 choicetravel2 ... choicetravel4
+{txt}{hline 77}
+
+{com}. 
+. mlogit choicetravel1 hinc1, baseoutcome(3)
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-283.75877}  
+Iteration 1:{space 3}log likelihood = {res:-262.21149}  
+Iteration 2:{space 3}log likelihood = {res:-261.74704}  
+Iteration 3:{space 3}log likelihood = {res:-261.74506}  
+Iteration 4:{space 3}log likelihood = {res:-261.74506}  
+{res}
+{txt}Multinomial logistic regression{col 49}Number of obs{col 67}= {res}       210
+{txt}{col 49}LR chi2({res}3{txt}){col 67}= {res}     44.03
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-261.74506{txt}{col 49}Pseudo R2{col 67}= {res}    0.0776
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}choicetrav~1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}AIR          {txt}{c |}
+{space 7}hinc1 {c |}{col 14}{res}{space 2}-.0014204{col 26}{space 2} .0098938{col 37}{space 1}   -0.14{col 46}{space 3}0.886{col 54}{space 4}-.0208118{col 67}{space 3} .0179711
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0425218{col 26}{space 2}  .454562{col 37}{space 1}    0.09{col 46}{space 3}0.925{col 54}{space 4}-.8484034{col 67}{space 3} .9334469
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}BUS          {txt}{c |}
+{space 7}hinc1 {c |}{col 14}{res}{space 2}-.0367726{col 26}{space 2} .0128194{col 37}{space 1}   -2.87{col 46}{space 3}0.004{col 54}{space 4}-.0618982{col 67}{space 3} -.011647
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6416887{col 26}{space 2} .4924933{col 37}{space 1}    1.30{col 46}{space 3}0.193{col 54}{space 4}-.3235804{col 67}{space 3} 1.606958
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}{res}CAR         {col 14}{txt}{c |}  (base outcome)
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}TRAIN        {txt}{c |}
+{space 7}hinc1 {c |}{col 14}{res}{space 2}-.0604794{col 26}{space 2} .0116914{col 37}{space 1}   -5.17{col 46}{space 3}0.000{col 54}{space 4} -.083394{col 67}{space 3}-.0375647
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.005946{col 26}{space 2} .4218019{col 37}{space 1}    4.76{col 46}{space 3}0.000{col 54}{space 4} 1.179229{col 67}{space 3} 2.832662
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. mlogit choicetravel1 hinc1, rr baseoutcome(3)
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-283.75877}  
+Iteration 1:{space 3}log likelihood = {res:-262.21149}  
+Iteration 2:{space 3}log likelihood = {res:-261.74704}  
+Iteration 3:{space 3}log likelihood = {res:-261.74506}  
+Iteration 4:{space 3}log likelihood = {res:-261.74506}  
+{res}
+{txt}Multinomial logistic regression{col 49}Number of obs{col 67}= {res}       210
+{txt}{col 49}LR chi2({res}3{txt}){col 67}= {res}     44.03
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-261.74506{txt}{col 49}Pseudo R2{col 67}= {res}    0.0776
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}choicetrav~1{col 14}{c |}        RRR{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}AIR          {txt}{c |}
+{space 7}hinc1 {c |}{col 14}{res}{space 2} .9985806{col 26}{space 2} .0098797{col 37}{space 1}   -0.14{col 46}{space 3}0.886{col 54}{space 4} .9794032{col 67}{space 3} 1.018134
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.043439{col 26}{space 2} .4743076{col 37}{space 1}    0.09{col 46}{space 3}0.925{col 54}{space 4} .4280979{col 67}{space 3}  2.54326
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}BUS          {txt}{c |}
+{space 7}hinc1 {c |}{col 14}{res}{space 2} .9638953{col 26}{space 2} .0123566{col 37}{space 1}   -2.87{col 46}{space 3}0.004{col 54}{space 4} .9399786{col 67}{space 3} .9884206
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.899686{col 26}{space 2} .9355827{col 37}{space 1}    1.30{col 46}{space 3}0.193{col 54}{space 4} .7235538{col 67}{space 3} 4.987615
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}{res}CAR         {col 14}{txt}{c |}  (base outcome)
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}TRAIN        {txt}{c |}
+{space 7}hinc1 {c |}{col 14}{res}{space 2} .9413132{col 26}{space 2} .0110052{col 37}{space 1}   -5.17{col 46}{space 3}0.000{col 54}{space 4} .9199886{col 67}{space 3} .9631321
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  7.43312{col 26}{space 2} 3.135304{col 37}{space 1}    4.76{col 46}{space 3}0.000{col 54}{space 4} 3.251866{col 67}{space 3} 16.99063
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. //3g
+. 
+. qui mlogit choicetravel1 hinc1, baseoutcome(3)
+{txt}
+{com}. 
+. est store mlogit3g1
+{txt}
+{com}. 
+. qui mlogit choicetravel1 hinc1 if choicetravel1!=1, baseoutcome(3)
+{txt}
+{com}. 
+. est store mlogit3g2
+{txt}
+{com}. 
+. qui suest mlogit3g1 mlogit3g2, noomitted
+{txt}
+{com}. 
+. test ([mlogit3g1_BUS=mlogit3g2_BUS]) ([mlogit3g1_TRAIN=mlogit3g2_TRAIN])
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}[mlogit3g1_BUS]hinc1 - [mlogit3g2_BUS]hinc1 = 0{p_end}
+{p 0 7}{space 1}{text:( 2)}{space 1} [mlogit3g1_TRAIN]hinc1 - [mlogit3g2_TRAIN]hinc1 = 0{p_end}
+
+{txt}{col 12}chi2(  2) ={res}    0.16
+{txt}{col 10}Prob > chi2 =  {res}  0.9234
+{txt}
+{com}. 
+. 
+. **Alternative test 1**
+. 
+. qui mlogit choicetravel1 hinc1, baseoutcome(3)
+{txt}
+{com}. 
+. 
+. est store mlogit3g3
+{txt}
+{com}. 
+. qui mlogit choicetravel1 hinc1 if choicetravel1!=4, baseoutcome(3)
+{txt}
+{com}. 
+. est store mlogit3g4
+{txt}
+{com}. 
+. qui suest mlogit3g3 mlogit3g4, noomitted
+{txt}
+{com}. 
+. test ([mlogit3g3_AIR=mlogit3g4_AIR]) ([mlogit3g3_BUS=mlogit3g4_BUS])
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}[mlogit3g3_AIR]hinc1 - [mlogit3g4_AIR]hinc1 = 0{p_end}
+{p 0 7}{space 1}{text:( 2)}{space 1} [mlogit3g3_BUS]hinc1 - [mlogit3g4_BUS]hinc1 = 0{p_end}
+
+{txt}{col 12}chi2(  2) ={res}    1.10
+{txt}{col 10}Prob > chi2 =  {res}  0.5766
+{txt}
+{com}. 
+. **Alternative test 2**
+. 
+. qui mlogit choicetravel1 hinc1, baseoutcome(3)
+{txt}
+{com}. 
+. **-findit spost13-** then install spots13.ado
+. 
+. mlogtest, hausman
+
+{res}Hausman tests of IIA assumption (N=210)
+
+{txt}  Ho: Odds(Outcome-J vs Outcome-K) are independent of other alternatives
+{res}
+{txt}{space 0}{space 0}{ralign 16:}{space 1}{c |}{space 1}{ralign 9:chi2}{space 1}{space 1}{ralign 4:df}{space 1}{space 1}{ralign 7:P>chi2}{space 0}
+{space 0}{hline 17}{c   +}{hline 11}{hline 6}{hline 8}
+{space 0}{space 0}{ralign 16:AIR}{space 1}{c |}{space 1}{ralign 9:{res:{sf:    0.153}}}{space 1}{space 1}{ralign 4:{res:{sf:   4}}}{space 1}{space 1}{ralign 7:{res:{sf:  0.997}}}{space 0}
+{space 0}{space 0}{ralign 16:BUS}{space 1}{c |}{space 1}{ralign 9:{res:{sf:    1.671}}}{space 1}{space 1}{ralign 4:{res:{sf:   4}}}{space 1}{space 1}{ralign 7:{res:{sf:  0.796}}}{space 0}
+{space 0}{space 0}{ralign 16:CAR}{space 1}{c |}{space 1}{ralign 9:{res:{sf:    5.021}}}{space 1}{space 1}{ralign 4:{res:{sf:   4}}}{space 1}{space 1}{ralign 7:{res:{sf:  0.285}}}{space 0}
+{space 0}{space 0}{ralign 16:TRAIN}{space 1}{c |}{space 1}{ralign 9:{res:{sf:    0.505}}}{space 1}{space 1}{ralign 4:{res:{sf:   3}}}{space 1}{space 1}{ralign 7:{res:{sf:  0.918}}}{space 0}
+
+  Note: A significant test is evidence against Ho.
+
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\andre\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 2\Exercise 3 Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}18 Mar 2020, 18:43:09
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

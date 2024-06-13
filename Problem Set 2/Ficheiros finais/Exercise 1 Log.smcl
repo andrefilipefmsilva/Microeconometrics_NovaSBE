@@ -1,0 +1,436 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\andre\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 2\Exercise1 Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}14 Mar 2020, 21:06:32
+
+{com}. do "C:\Users\andre\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 2\Exercise 1.do"
+{txt}
+{com}. //Exercise 1
+. 
+. //1a
+. 
+. reg inlf nwifeinc educ exper age kidslt6 kidsge6, robust
+
+{txt}Linear regression                               Number of obs     = {res}       753
+                                                {txt}F(6, 746)         =  {res}    65.55
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.2539
+                                                {txt}Root MSE          =    {res} .42982
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        inlf{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}nwifeinc {c |}{col 14}{res}{space 2}-.0033265{col 26}{space 2} .0015099{col 37}{space 1}   -2.20{col 46}{space 3}0.028{col 54}{space 4}-.0062907{col 67}{space 3}-.0003623
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} .0398189{col 26}{space 2} .0072073{col 37}{space 1}    5.52{col 46}{space 3}0.000{col 54}{space 4} .0256698{col 67}{space 3}  .053968
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0225725{col 26}{space 2} .0021001{col 37}{space 1}   10.75{col 46}{space 3}0.000{col 54}{space 4} .0184497{col 67}{space 3} .0266952
+{txt}{space 9}age {c |}{col 14}{res}{space 2} -.017712{col 26}{space 2}  .002273{col 37}{space 1}   -7.79{col 46}{space 3}0.000{col 54}{space 4}-.0221743{col 67}{space 3}-.0132497
+{txt}{space 5}kidslt6 {c |}{col 14}{res}{space 2}-.2718291{col 26}{space 2} .0314266{col 37}{space 1}   -8.65{col 46}{space 3}0.000{col 54}{space 4}-.3335241{col 67}{space 3} -.210134
+{txt}{space 5}kidsge6 {c |}{col 14}{res}{space 2} .0125301{col 26}{space 2} .0136017{col 37}{space 1}    0.92{col 46}{space 3}0.357{col 54}{space 4} -.014172{col 67}{space 3} .0392322
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .7072318{col 26}{space 2} .1459241{col 37}{space 1}    4.85{col 46}{space 3}0.000{col 54}{space 4}  .420761{col 67}{space 3} .9937025
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. //1b
+. 
+. probit inlf nwifeinc educ exper age kidslt6 kidsge6
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res: -514.8732}  
+Iteration 1:{space 3}log likelihood = {res:-407.11545}  
+Iteration 2:{space 3}log likelihood = {res:-406.21971}  
+Iteration 3:{space 3}log likelihood = {res:-406.21886}  
+Iteration 4:{space 3}log likelihood = {res:-406.21886}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}       753
+{txt}{col 49}LR chi2({res}6{txt}){col 67}= {res}    217.31
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-406.21886{txt}{col 49}Pseudo R2{col 67}= {res}    0.2110
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        inlf{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}nwifeinc {c |}{col 14}{res}{space 2}-.0115648{col 26}{space 2} .0047942{col 37}{space 1}   -2.41{col 46}{space 3}0.016{col 54}{space 4}-.0209613{col 67}{space 3}-.0021684
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} .1336902{col 26}{space 2} .0251346{col 37}{space 1}    5.32{col 46}{space 3}0.000{col 54}{space 4} .0844273{col 67}{space 3} .1829531
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0702165{col 26}{space 2}  .007571{col 37}{space 1}    9.27{col 46}{space 3}0.000{col 54}{space 4} .0553775{col 67}{space 3} .0850555
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0555548{col 26}{space 2} .0083447{col 37}{space 1}   -6.66{col 46}{space 3}0.000{col 54}{space 4}-.0719101{col 67}{space 3}-.0391995
+{txt}{space 5}kidslt6 {c |}{col 14}{res}{space 2}-.8742923{col 26}{space 2} .1175098{col 37}{space 1}   -7.44{col 46}{space 3}0.000{col 54}{space 4}-1.104607{col 67}{space 3}-.6439773
+{txt}{space 5}kidsge6 {c |}{col 14}{res}{space 2} .0345459{col 26}{space 2} .0429862{col 37}{space 1}    0.80{col 46}{space 3}0.422{col 54}{space 4}-.0497055{col 67}{space 3} .1187974
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5795817{col 26}{space 2}  .496205{col 37}{space 1}    1.17{col 46}{space 3}0.243{col 54}{space 4}-.3929623{col 67}{space 3} 1.552126
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}       753
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(inlf), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:nwifeinc educ exper age kidslt6 kidsge6}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}nwifeinc {c |}{col 14}{res}{space 2} -.003532{col 26}{space 2}   .00145{col 37}{space 1}   -2.44{col 46}{space 3}0.015{col 54}{space 4}-.0063739{col 67}{space 3}-.0006901
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} .0408301{col 26}{space 2} .0072785{col 37}{space 1}    5.61{col 46}{space 3}0.000{col 54}{space 4} .0265645{col 67}{space 3} .0550958
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0214447{col 26}{space 2} .0019236{col 37}{space 1}   11.15{col 46}{space 3}0.000{col 54}{space 4} .0176745{col 67}{space 3}  .025215
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0169669{col 26}{space 2} .0023171{col 37}{space 1}   -7.32{col 46}{space 3}0.000{col 54}{space 4}-.0215084{col 67}{space 3}-.0124254
+{txt}{space 5}kidslt6 {c |}{col 14}{res}{space 2}-.2670162{col 26}{space 2} .0317994{col 37}{space 1}   -8.40{col 46}{space 3}0.000{col 54}{space 4}-.3293418{col 67}{space 3}-.2046906
+{txt}{space 5}kidsge6 {c |}{col 14}{res}{space 2} .0105506{col 26}{space 2} .0131118{col 37}{space 1}    0.80{col 46}{space 3}0.421{col 54}{space 4}-.0151481{col 67}{space 3} .0362493
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. logit inlf nwifeinc educ exper age kidslt6 kidsge6
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res: -514.8732}  
+Iteration 1:{space 3}log likelihood = {res:-406.91038}  
+Iteration 2:{space 3}log likelihood = {res:-406.14404}  
+Iteration 3:{space 3}log likelihood = {res:-406.14318}  
+Iteration 4:{space 3}log likelihood = {res:-406.14318}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}       753
+{txt}{col 49}LR chi2({res}6{txt}){col 67}= {res}    217.46
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-406.14318{txt}{col 49}Pseudo R2{col 67}= {res}    0.2112
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        inlf{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}nwifeinc {c |}{col 14}{res}{space 2}-.0202165{col 26}{space 2} .0082637{col 37}{space 1}   -2.45{col 46}{space 3}0.014{col 54}{space 4} -.036413{col 67}{space 3}-.0040199
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} .2269766{col 26}{space 2} .0432954{col 37}{space 1}    5.24{col 46}{space 3}0.000{col 54}{space 4} .1421191{col 67}{space 3} .3118341
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .1197458{col 26}{space 2} .0136264{col 37}{space 1}    8.79{col 46}{space 3}0.000{col 54}{space 4} .0930385{col 67}{space 3}  .146453
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0910884{col 26}{space 2} .0143207{col 37}{space 1}   -6.36{col 46}{space 3}0.000{col 54}{space 4}-.1191564{col 67}{space 3}-.0630204
+{txt}{space 5}kidslt6 {c |}{col 14}{res}{space 2}-1.439393{col 26}{space 2} .2014989{col 37}{space 1}   -7.14{col 46}{space 3}0.000{col 54}{space 4}-1.834324{col 67}{space 3}-1.044462
+{txt}{space 5}kidsge6 {c |}{col 14}{res}{space 2} .0581735{col 26}{space 2}   .07338{col 37}{space 1}    0.79{col 46}{space 3}0.428{col 54}{space 4}-.0856487{col 67}{space 3} .2019957
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .8379088{col 26}{space 2} .8409368{col 37}{space 1}    1.00{col 46}{space 3}0.319{col 54}{space 4} -.810297{col 67}{space 3} 2.486115
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}       753
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(inlf), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:nwifeinc educ exper age kidslt6 kidsge6}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}nwifeinc {c |}{col 14}{res}{space 2}-.0036634{col 26}{space 2} .0014771{col 37}{space 1}   -2.48{col 46}{space 3}0.013{col 54}{space 4}-.0065586{col 67}{space 3}-.0007683
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} .0411306{col 26}{space 2} .0073415{col 37}{space 1}    5.60{col 46}{space 3}0.000{col 54}{space 4} .0267415{col 67}{space 3} .0555196
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0216992{col 26}{space 2} .0019897{col 37}{space 1}   10.91{col 46}{space 3}0.000{col 54}{space 4} .0177994{col 67}{space 3}  .025599
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0165062{col 26}{space 2} .0023383{col 37}{space 1}   -7.06{col 46}{space 3}0.000{col 54}{space 4}-.0210891{col 67}{space 3}-.0119232
+{txt}{space 5}kidslt6 {c |}{col 14}{res}{space 2}-.2608333{col 26}{space 2} .0318733{col 37}{space 1}   -8.18{col 46}{space 3}0.000{col 54}{space 4}-.3233038{col 67}{space 3}-.1983627
+{txt}{space 5}kidsge6 {c |}{col 14}{res}{space 2} .0105417{col 26}{space 2} .0132746{col 37}{space 1}    0.79{col 46}{space 3}0.427{col 54}{space 4} -.015476{col 67}{space 3} .0365593
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. //1c
+. 
+. qui reg inlf nwifeinc educ exper age kidslt6 kidsge6, robust
+{txt}
+{com}. est store LPM
+{txt}
+{com}. 
+. qui probit inlf nwifeinc educ exper age kidslt6 kidsge6
+{txt}
+{com}. margins, dydx(*) post
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}       753
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(inlf), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:nwifeinc educ exper age kidslt6 kidsge6}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}nwifeinc {c |}{col 14}{res}{space 2} -.003532{col 26}{space 2}   .00145{col 37}{space 1}   -2.44{col 46}{space 3}0.015{col 54}{space 4}-.0063739{col 67}{space 3}-.0006901
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} .0408301{col 26}{space 2} .0072785{col 37}{space 1}    5.61{col 46}{space 3}0.000{col 54}{space 4} .0265645{col 67}{space 3} .0550958
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0214447{col 26}{space 2} .0019236{col 37}{space 1}   11.15{col 46}{space 3}0.000{col 54}{space 4} .0176745{col 67}{space 3}  .025215
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0169669{col 26}{space 2} .0023171{col 37}{space 1}   -7.32{col 46}{space 3}0.000{col 54}{space 4}-.0215084{col 67}{space 3}-.0124254
+{txt}{space 5}kidslt6 {c |}{col 14}{res}{space 2}-.2670162{col 26}{space 2} .0317994{col 37}{space 1}   -8.40{col 46}{space 3}0.000{col 54}{space 4}-.3293418{col 67}{space 3}-.2046906
+{txt}{space 5}kidsge6 {c |}{col 14}{res}{space 2} .0105506{col 26}{space 2} .0131118{col 37}{space 1}    0.80{col 46}{space 3}0.421{col 54}{space 4}-.0151481{col 67}{space 3} .0362493
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. est store probmarg
+{txt}
+{com}. 
+. 
+. qui logit inlf nwifeinc educ exper age kidslt6 kidsge6
+{txt}
+{com}. margins, dydx(*) post
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}       753
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(inlf), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:nwifeinc educ exper age kidslt6 kidsge6}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}nwifeinc {c |}{col 14}{res}{space 2}-.0036634{col 26}{space 2} .0014771{col 37}{space 1}   -2.48{col 46}{space 3}0.013{col 54}{space 4}-.0065586{col 67}{space 3}-.0007683
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} .0411306{col 26}{space 2} .0073415{col 37}{space 1}    5.60{col 46}{space 3}0.000{col 54}{space 4} .0267415{col 67}{space 3} .0555196
+{txt}{space 7}exper {c |}{col 14}{res}{space 2} .0216992{col 26}{space 2} .0019897{col 37}{space 1}   10.91{col 46}{space 3}0.000{col 54}{space 4} .0177994{col 67}{space 3}  .025599
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0165062{col 26}{space 2} .0023383{col 37}{space 1}   -7.06{col 46}{space 3}0.000{col 54}{space 4}-.0210891{col 67}{space 3}-.0119232
+{txt}{space 5}kidslt6 {c |}{col 14}{res}{space 2}-.2608333{col 26}{space 2} .0318733{col 37}{space 1}   -8.18{col 46}{space 3}0.000{col 54}{space 4}-.3233038{col 67}{space 3}-.1983627
+{txt}{space 5}kidsge6 {c |}{col 14}{res}{space 2} .0105417{col 26}{space 2} .0132746{col 37}{space 1}    0.79{col 46}{space 3}0.427{col 54}{space 4} -.015476{col 67}{space 3} .0365593
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. est store logtmarg
+{txt}
+{com}. 
+. 
+. esttab LPM probmarg logtmarg, not b(%7.6f) star mtitles("LPM" "Marg Probit" "Marg Logit") nogaps nonumb nocons
+{res}
+{txt}{hline 60}
+{txt}                      LPM     Marg Probit      Marg Logit   
+{txt}{hline 60}
+{txt}nwifeinc    {res}    -0.003327*      -0.003532*      -0.003663*  {txt}
+{txt}educ        {res}     0.039819***     0.040830***     0.041131***{txt}
+{txt}exper       {res}     0.022572***     0.021445***     0.021699***{txt}
+{txt}age         {res}    -0.017712***    -0.016967***    -0.016506***{txt}
+{txt}kidslt6     {res}    -0.271829***    -0.267016***    -0.260833***{txt}
+{txt}kidsge6     {res}     0.012530        0.010551        0.010542   {txt}
+{txt}{hline 60}
+{txt}N           {res}          753             753             753   {txt}
+{txt}{hline 60}
+{txt}* p<0.05, ** p<0.01, *** p<0.001
+
+{com}. 
+. //1d
+. 
+. **kidslt6==0**
+. 
+. qui probit inlf nwifeinc educ exper age kidsge6 kidslt6
+{txt}
+{com}. predict pprob_0 if kidslt6==0, pr
+{txt}(147 missing values generated)
+
+{com}. 
+. est restore LPM
+{txt}(results {stata estimates replay LPM:LPM} are active now)
+
+{com}. predict pols_0 if kidslt6==0, xb
+{txt}(147 missing values generated)
+
+{com}. 
+. summarize pols_0 pprob_0
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}pols_0 {c |}{res}        606     .616806    .2366125  -.1269228   1.138675
+{txt}{space 5}pprob_0 {c |}{res}        606     .619278    .2388921   .0222649   .9785466
+{txt}
+{com}. 
+. **kidslt6==1**
+. qui probit inlf nwifeinc educ exper age kidsge6 kidslt6
+{txt}
+{com}. predict pprob_1 if kidslt6==1, pr
+{txt}(635 missing values generated)
+
+{com}. 
+. est restore LPM
+{txt}(results {stata estimates replay LPM:LPM} are active now)
+
+{com}. predict pols_1 if kidslt6==1, xb
+{txt}(635 missing values generated)
+
+{com}. 
+. summarize pols_1 pprob_1
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}pols_1 {c |}{res}        118    .4054794    .1782114  -.3012401   .8240501
+{txt}{space 5}pprob_1 {c |}{res}        118    .3948017    .1852586   .0045428   .8496932
+{txt}
+{com}. 
+. **kidslt6==2**
+. qui probit inlf nwifeinc educ exper age kidsge6 kidslt6
+{txt}
+{com}. predict pprob_2 if kidslt6==2, pr
+{txt}(727 missing values generated)
+
+{com}. 
+. est restore LPM
+{txt}(results {stata estimates replay LPM:LPM} are active now)
+
+{com}. predict pols_2 if kidslt6==2, xb
+{txt}(727 missing values generated)
+
+{com}. 
+. summarize pols_2 pprob_2
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}pols_2 {c |}{res}         26    .2674437    .1609458  -.0003745   .5394952
+{txt}{space 5}pprob_2 {c |}{res}         26    .2519958    .1548448    .052625   .5534489
+{txt}
+{com}. 
+. **all in a table**
+. 
+. summarize pols_0 pprob_0 pols_1 pprob_1 pols_2 pprob_2
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}pols_0 {c |}{res}        606     .616806    .2366125  -.1269228   1.138675
+{txt}{space 5}pprob_0 {c |}{res}        606     .619278    .2388921   .0222649   .9785466
+{txt}{space 6}pols_1 {c |}{res}        118    .4054794    .1782114  -.3012401   .8240501
+{txt}{space 5}pprob_1 {c |}{res}        118    .3948017    .1852586   .0045428   .8496932
+{txt}{space 6}pols_2 {c |}{res}         26    .2674437    .1609458  -.0003745   .5394952
+{txt}{hline 13}{c +}{hline 57}
+{space 5}pprob_2 {c |}{res}         26    .2519958    .1548448    .052625   .5534489
+{txt}
+{com}. 
+. 
+. //1e
+. 
+. sum kidsge6 kidslt6
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 5}kidsge6 {c |}{res}        753    1.353254    1.319874          0          8
+{txt}{space 5}kidslt6 {c |}{res}        753    .2377158     .523959          0          3
+{txt}
+{com}. 
+. 
+. qui probit inlf nwifeinc educ exper age kidsge6 i.kidslt6
+{txt}
+{com}. margins i.kidslt6, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       750
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(inlf), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:nwifeinc}{space 8}{txt:=} {space 3}20.02516 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:educ}{space 12}{txt:=} {space 3}12.28133 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:exper}{space 11}{txt:=} {space 3}10.65733 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 5}42.576 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:kidsge6}{space 9}{txt:=} {space 3}1.353333 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:0.kidslt6}{space 7}{txt:=} {space 7}.808 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.kidslt6}{space 7}{txt:=} {space 3}.1573333 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:2.kidslt6}{space 7}{txt:=} {space 3}.0346667 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}     Margin{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}kidslt6 {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .6630414{col 26}{space 2} .0216463{col 37}{space 1}   30.63{col 46}{space 3}0.000{col 54}{space 4} .6206154{col 67}{space 3} .7054673
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .3201166{col 26}{space 2} .0479567{col 37}{space 1}    6.68{col 46}{space 3}0.000{col 54}{space 4} .2261233{col 67}{space 3} .4141099
+{txt}{space 10}2  {c |}{col 14}{res}{space 2} .0995155{col 26}{space 2} .0514517{col 37}{space 1}    1.93{col 46}{space 3}0.053{col 54}{space 4}-.0013279{col 67}{space 3}  .200359
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. marginsplot
+
+{text}{p 2 6 2}Variables that uniquely identify margins: kidslt6{p_end}
+{res}{txt}
+{com}. 
+. graph export probit1.png, replace
+{txt}(file probit1.png written in PNG format)
+
+{com}. 
+. 
+. qui logit inlf nwifeinc educ exper age kidsge6 i.kidslt6
+{txt}
+{com}. margins i.kidslt6, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       750
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(inlf), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:nwifeinc}{space 8}{txt:=} {space 3}20.02516 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:educ}{space 12}{txt:=} {space 3}12.28133 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:exper}{space 11}{txt:=} {space 3}10.65733 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 5}42.576 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:kidsge6}{space 9}{txt:=} {space 3}1.353333 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:0.kidslt6}{space 7}{txt:=} {space 7}.808 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.kidslt6}{space 7}{txt:=} {space 3}.1573333 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:2.kidslt6}{space 7}{txt:=} {space 3}.0346667 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}     Margin{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}kidslt6 {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .6679017{col 26}{space 2} .0224035{col 37}{space 1}   29.81{col 46}{space 3}0.000{col 54}{space 4} .6239917{col 67}{space 3} .7118117
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .3185729{col 26}{space 2} .0491217{col 37}{space 1}    6.49{col 46}{space 3}0.000{col 54}{space 4}  .222296{col 67}{space 3} .4148497
+{txt}{space 10}2  {c |}{col 14}{res}{space 2} .1083367{col 26}{space 2} .0483285{col 37}{space 1}    2.24{col 46}{space 3}0.025{col 54}{space 4} .0136145{col 67}{space 3} .2030589
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. marginsplot
+
+{text}{p 2 6 2}Variables that uniquely identify margins: kidslt6{p_end}
+{res}{txt}
+{com}. 
+. graph export logit1.png, replace
+{txt}(file logit1.png written in PNG format)
+
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\andre\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Problem Set 2\Exercise1 Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}14 Mar 2020, 21:06:50
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
