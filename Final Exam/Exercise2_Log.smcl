@@ -1,0 +1,392 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Final Exam\Exercise2_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}22 May 2020, 18:43:26
+
+{com}. do "C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Final Exam\Exercise 2.do"
+{txt}
+{com}. //Exercise 2a
+. 
+. twoway (kdensity hrwage if alcoholic==0) (kdensity hrwage if alcoholic==1), legend(row(1) order(1 2) lab(1 "Non-Alcohol abuser") lab(2 "Alcohol Abuser")) xtitle("Hourly Wage")
+{res}{txt}
+{com}. twoway (kdensity hrwage if alcoholic==0) (kdensity hrwage if alcoholic==1) if hrwage < 50, legend(row(1) order(1 2) lab(1 "Non-Alcohol abuser") lab(2 "Alcohol Abuser")) xtitle("Hourly Wage")
+{res}{txt}
+{com}. 
+. //Exercise 2b
+. tab alcoholic
+
+  {txt}ALCOHOLIC {c |}
+ABUSER (=1; {c |}
+         =0 {c |}
+ otherwise) {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      4,233       89.93       89.93
+{txt}          1 {c |}{res}        474       10.07      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,707      100.00
+{txt}
+{com}. 
+. tabstat perday sex race afqtrev depression health povst urate faminc, by(alcoholic) nototal
+
+{txt}Summary statistics: mean
+  by categories of: alcoholic (ALCOHOLIC ABUSER (=1; =0 otherwise))
+
+{ralign 9:alcoholic} {...}
+{c |}{...}
+    perday       sex      race   afqtrev  depres~n    health     povst     urate    faminc
+{hline 10}{c +}{hline 90}
+{ralign 9:0} {...}
+{c |}{...}
+ {res}  2.51193  1.473187   2.38885  44.16702  3.475785  .0654382  .0930782  7.281006  39829.45
+{txt}{ralign 9:1} {...}
+{c |}{...}
+ {res} 6.016878  1.204641   2.28481  31.87342  4.417722  .0696203  .1455696  7.348101  23750.39
+{txt}{hline 10}{c BT}{hline 90}
+
+{com}. ttest perday, by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22}  2.51193{col 34} .0287641{col 46} 1.871438{col 58} 2.455537{col 70} 2.568323
+       {txt}1 {c |}{res}{col 12}    474{col 22} 6.016878{col 34} .2065798{col 46}  4.49756{col 58}  5.61095{col 70} 6.422805
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} 2.864882{col 34} .0365712{col 46}  2.50906{col 58} 2.793185{col 70} 2.936579
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-3.504948{col 34} .1102759{col 58} -3.72114{col 70}-3.288755
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res}-31.7834
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}1.0000
+{txt}
+{com}. ttest sex , by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22} 1.473187{col 34} .0076749{col 46} .4993395{col 58}  1.45814{col 70} 1.488234
+       {txt}1 {c |}{res}{col 12}    474{col 22} 1.204641{col 34} .0185502{col 46} .4038655{col 58}  1.16819{col 70} 1.241092
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} 1.446144{col 34} .0072462{col 46} .4971439{col 58} 1.431938{col 70}  1.46035
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .2685455{col 34} .0237613{col 58} .2219622{col 70} .3151288
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} 11.3018
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}1.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}0.0000
+{txt}
+{com}. ttest race , by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22}  2.38885{col 34} .0117374{col 46} .7636523{col 58} 2.365838{col 70} 2.411861
+       {txt}1 {c |}{res}{col 12}    474{col 22}  2.28481{col 34} .0358749{col 46} .7810529{col 58} 2.214316{col 70} 2.355304
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} 2.378373{col 34} .0111646{col 46} .7659784{col 58} 2.356485{col 70} 2.400261
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .1040394{col 34} .0370731{col 58} .0313588{col 70} .1767199
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res}  2.8063
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9975         {txt}Pr(|T| > |t|) = {res}0.0050          {txt}Pr(T > t) = {res}0.0025
+{txt}
+{com}. ttest afqtrev , by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22} 44.16702{col 34} .4481676{col 46} 29.15846{col 58} 43.28838{col 70} 45.04566
+       {txt}1 {c |}{res}{col 12}    474{col 22} 31.87342{col 34} 1.191225{col 46}  25.9348{col 58} 29.53267{col 70} 34.21417
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} 42.92904{col 34} .4239169{col 46} 29.08391{col 58} 42.09797{col 70} 43.76012
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}  12.2936{col 34} 1.397381{col 58} 9.554083{col 70} 15.03312
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res}  8.7976
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}1.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}0.0000
+{txt}
+{com}. ttest depression , by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22} 3.475785{col 34} .0593213{col 46}  3.85953{col 58} 3.359485{col 70} 3.592086
+       {txt}1 {c |}{res}{col 12}    474{col 22} 4.417722{col 34} .2018559{col 46} 4.394714{col 58} 4.021076{col 70} 4.814367
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} 3.570639{col 34} .0572309{col 46} 3.926472{col 58}  3.45844{col 70} 3.682839
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} -.941936{col 34} .1897023{col 58}-1.313841{col 70}-.5700307
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -4.9653
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}1.0000
+{txt}
+{com}. ttest health , by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22} .0654382{col 34} .0038014{col 46} .2473267{col 58} .0579854{col 70}  .072891
+       {txt}1 {c |}{res}{col 12}    474{col 22} .0696203{col 34} .0117022{col 46} .2547748{col 58} .0466255{col 70}  .092615
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} .0658594{col 34} .0036157{col 46} .2480624{col 58}  .058771{col 70} .0729478
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} -.004182{col 34}  .012016{col 58} -.027739{col 70}  .019375
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -0.3480
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.3639         {txt}Pr(|T| > |t|) = {res}0.7278          {txt}Pr(T > t) = {res}0.6361
+{txt}
+{com}. ttest povst , by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22} .0930782{col 34} .0044662{col 46} .2905763{col 58} .0843221{col 70} .1018342
+       {txt}1 {c |}{res}{col 12}    474{col 22} .1455696{col 34}  .016216{col 46} .3530468{col 58} .1137054{col 70} .1774339
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} .0983641{col 34} .0043412{col 46}  .297838{col 58} .0898534{col 70} .1068749
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0524914{col 34}  .014407{col 58}-.0807359{col 70} -.024247
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -3.6435
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0001         {txt}Pr(|T| > |t|) = {res}0.0003          {txt}Pr(T > t) = {res}0.9999
+{txt}
+{com}. ttest urate , by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22} 7.281006{col 34} .0422581{col 46} 2.749377{col 58} 7.198158{col 70} 7.363854
+       {txt}1 {c |}{res}{col 12}    474{col 22} 7.348101{col 34} .1223293{col 46} 2.663298{col 58} 7.107725{col 70} 7.588477
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} 7.287763{col 34} .0399464{col 46} 2.740628{col 58} 7.209449{col 70} 7.366077
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0670949{col 34} .1327527{col 58}-.3273523{col 70} .1931625
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -0.5054
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.3066         {txt}Pr(|T| > |t|) = {res}0.6133          {txt}Pr(T > t) = {res}0.6934
+{txt}
+{com}. ttest faminc, by(alcoholic)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}  4,233{col 22} 39829.45{col 34} 632.9761{col 46} 41182.38{col 58} 38588.49{col 70} 41070.42
+       {txt}1 {c |}{res}{col 12}    474{col 22} 23750.39{col 34} 1151.731{col 46} 25074.95{col 58} 21487.25{col 70} 26013.53
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}  4,707{col 22} 38210.27{col 34}  585.168{col 46} 40146.96{col 58} 37063.07{col 70} 39357.48
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 16079.06{col 34} 1930.543{col 58} 12294.29{col 70} 19863.83
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res}  8.3288
+{txt}Ho: diff = 0                                     degrees of freedom = {res}    4705
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}1.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}0.0000
+{txt}
+{com}. 
+. //Exercise 2c
+. 
+. logit alcoholic sex race afqtrev depression DMISS_depression health DMISS_health povst DMISS_povst urate DMISS_urate faminc DMISS_faminc 
+
+{txt}note: DMISS_depression != 0 predicts failure perfectly
+      DMISS_depression dropped and 2 obs not used
+
+note: DMISS_health omitted because of collinearity
+note: DMISS_urate omitted because of collinearity
+note: DMISS_faminc omitted because of collinearity
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-1537.1912}  
+Iteration 1:{space 3}log likelihood = {res:-1406.6008}  
+Iteration 2:{space 3}log likelihood = {res:-1388.6846}  
+Iteration 3:{space 3}log likelihood = {res:-1388.2012}  
+Iteration 4:{space 3}log likelihood = {res:-1388.2003}  
+Iteration 5:{space 3}log likelihood = {res:-1388.2003}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}     4,705
+{txt}{col 49}LR chi2({res}9{txt}){col 67}= {res}    297.98
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-1388.2003{txt}{col 49}Pseudo R2{col 67}= {res}    0.0969
+
+{txt}{hline 17}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       alcoholic{col 18}{c |}      Coef.{col 30}   Std. Err.{col 42}      z{col 50}   P>|z|{col 58}     [95% Con{col 71}f. Interval]
+{hline 17}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 13}sex {c |}{col 18}{res}{space 2}-1.431874{col 30}{space 2} .1243996{col 41}{space 1}  -11.51{col 50}{space 3}0.000{col 58}{space 4}-1.675692{col 71}{space 3}-1.188055
+{txt}{space 12}race {c |}{col 18}{res}{space 2} .0756575{col 30}{space 2} .0727772{col 41}{space 1}    1.04{col 50}{space 3}0.299{col 58}{space 4}-.0669831{col 71}{space 3} .2182981
+{txt}{space 9}afqtrev {c |}{col 18}{res}{space 2}-.0101642{col 30}{space 2} .0021331{col 41}{space 1}   -4.76{col 50}{space 3}0.000{col 58}{space 4} -.014345{col 71}{space 3}-.0059833
+{txt}{space 6}depression {c |}{col 18}{res}{space 2} .0691237{col 30}{space 2} .0123938{col 41}{space 1}    5.58{col 50}{space 3}0.000{col 58}{space 4} .0448323{col 71}{space 3} .0934151
+{txt}DMISS_depression {c |}{col 18}{res}{space 2}        0{col 30}{txt}  (omitted)
+{space 10}health {c |}{col 18}{res}{space 2}-.5147786{col 30}{space 2} .2073307{col 41}{space 1}   -2.48{col 50}{space 3}0.013{col 58}{space 4}-.9211393{col 71}{space 3}-.1084178
+{txt}{space 4}DMISS_health {c |}{col 18}{res}{space 2}        0{col 30}{txt}  (omitted)
+{space 11}povst {c |}{col 18}{res}{space 2} .0260859{col 30}{space 2} .1746457{col 41}{space 1}    0.15{col 50}{space 3}0.881{col 58}{space 4}-.3162134{col 71}{space 3} .3683853
+{txt}{space 5}DMISS_povst {c |}{col 18}{res}{space 2}-.2463439{col 30}{space 2} .1614669{col 41}{space 1}   -1.53{col 50}{space 3}0.127{col 58}{space 4}-.5628132{col 71}{space 3} .0701254
+{txt}{space 11}urate {c |}{col 18}{res}{space 2} .0010986{col 30}{space 2} .0181798{col 41}{space 1}    0.06{col 50}{space 3}0.952{col 58}{space 4}-.0345331{col 71}{space 3} .0367304
+{txt}{space 5}DMISS_urate {c |}{col 18}{res}{space 2}        0{col 30}{txt}  (omitted)
+{space 10}faminc {c |}{col 18}{res}{space 2}-.0000144{col 30}{space 2} 2.89e-06{col 41}{space 1}   -5.00{col 50}{space 3}0.000{col 58}{space 4}-.0000201{col 71}{space 3}-8.78e-06
+{txt}{space 4}DMISS_faminc {c |}{col 18}{res}{space 2}        0{col 30}{txt}  (omitted)
+{space 11}_cons {c |}{col 18}{res}{space 2} .1591593{col 30}{space 2} .2913187{col 41}{space 1}    0.55{col 50}{space 3}0.585{col 58}{space 4}-.4118149{col 71}{space 3} .7301334
+{txt}{hline 17}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. predict pscore1, p
+{txt}(2 missing values generated)
+
+{com}. 
+. psgraph, treated(alcoholic) pscore(pscore1)
+{res}{txt}
+{com}. twoway (kdensity pscore1 if alcoholic==0) (kdensity pscore1 if alcoholic==1), legend(row(1) order(1 2) lab(1 "Non-Alcoholic") lab(2 "Alcoholic"))
+{res}{txt}
+{com}. 
+. //Exercise 2d
+. 
+. psmatch2 alcoholic, radius caliper(0.0001) outcome(hrwage) pscore(pscore1)
+{txt}{hline 28}{c TT}{hline 59}
+        Variable     Sample {c |}    Treated     Controls   Difference         S.E.   T-stat
+{hline 28}{c +}{hline 59}
+          hrwage  Unmatched {c |}{res} 10.0289726   12.6249464  -2.59597376   .556427871    -4.67
+{txt}{col 17}        ATT {c |}{res} 10.5621821   12.0813313   -1.5191492   .632158637    -2.40
+{txt}{hline 28}{c +}{hline 59}
+Note: S.E. does not take into account that the propensity score is estimated.
+
+ psmatch2: {c |}   psmatch2: Common
+ Treatment {c |}        support
+assignment {c |} Off suppo  On suppor {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Untreated {c |}{res}         0      3,781 {txt}{c |}{res}     3,781 
+{txt}   Treated {c |}{res}        84        317 {txt}{c |}{res}       401 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        84      4,098 {txt}{c |}{res}     4,182 
+
+{txt}
+{com}. bootstrap: psmatch2 alcoholic, radius caliper(0.0001) outcome(hrwage) pscore(pscore1)
+{txt}(running psmatch2 on estimation sample)
+
+Bootstrap replications ({res}50{txt})
+{hline 4}{c +}{hline 3} 1 {hline 3}{c +}{hline 3} 2 {hline 3}{c +}{hline 3} 3 {hline 3}{c +}{hline 3} 4 {hline 3}{c +}{hline 3} 5 
+..................................................    50
+{res}
+{txt}Linear regression{col 49}Number of obs{col 67}= {res}     4,182
+{txt}{col 49}Replications{col 67}= {res}        50
+{txt}{col 49}Wald chi2({res}1{txt}){col 67}= {res}     47.75
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.0052
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.0049
+{txt}{col 49}Root MSE{col 67}= {res}   10.5948
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}   Observed{col 26}   Bootstrap{col 54}         Norm{col 67}al-based
+{col 1}      hrwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}_treated {c |}{col 14}{res}{space 2}-2.595974{col 26}{space 2} .3756958{col 37}{space 1}   -6.91{col 46}{space 3}0.000{col 54}{space 4}-3.332324{col 67}{space 3}-1.859624
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 12.62495{col 26}{space 2} .1701866{col 37}{space 1}   74.18{col 46}{space 3}0.000{col 54}{space 4} 12.29139{col 67}{space 3} 12.95851
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. pstest sex race afqtrev depression health povst urate faminc 
+
+{txt}{hline 24}{c TT}{hline 26}{c TT}{hline 15}{c TT}{hline 10}
+        {col 24} {c |}       Mean               {c |}     t-test    {c |}  V(T)/
+Variable{col 24} {c |} Treated Control    %bias {c |}    t    p>|t| {c |}  V(C)
+{hline 24}{c +}{hline 26}{c +}{hline 15}{c +}{hline 10}
+sex                   {col 24} {c |}{res}  1.183   1.2006     -4.1{txt} {c |}{res}  -0.56  0.574{txt} {c |}{res}  0.93
+{txt}race                  {col 24} {c |}{res} 2.3912   2.3325      7.6{txt} {c |}{res}   0.97  0.335{txt} {c |}{res}  1.05
+{txt}afqtrev               {col 24} {c |}{res} 38.533   38.325      0.8{txt} {c |}{res}   0.10  0.923{txt} {c |}{res}  0.91
+{txt}depression            {col 24} {c |}{res} 3.2303   3.3976     -4.3{txt} {c |}{res}  -0.57  0.568{txt} {c |}{res}  0.84
+{txt}health                {col 24} {c |}{res}  .0347   .04079     -3.1{txt} {c |}{res}  -0.40  0.688{txt} {c |}{res}     .
+{txt}povst                 {col 24} {c |}{res}  .0694   .07593     -2.5{txt} {c |}{res}  -0.32  0.752{txt} {c |}{res}     .
+{txt}urate                 {col 24} {c |}{res} 7.2729   7.2407      1.2{txt} {c |}{res}   0.16  0.874{txt} {c |}{res}  1.03
+{txt}faminc                {col 24} {c |}{res}  29229    27703      4.4{txt} {c |}{res}   0.74  0.458{txt} {c |}{res}  1.23
+{txt}{hline 24}{c BT}{hline 26}{c BT}{hline 15}{c BT}{hline 10}
+* if variance ratio outside [0.80; 1.25]
+
+{hline 70}
+Ps R2   LR chi2   p>chi2   MeanBias   MedBias      B       R     %Var 
+{hline 70}
+{res}0.003      2.22    0.974      3.5       3.6      11.8    1.05{col 67}  0
+{txt}{hline 70}
+* if B>25%, R outside [0.5; 2]
+
+{com}. 
+. //Exercise 2e
+. g att_psw=hrwage*(alcoholic-pscore1)/(1-pscore1) 
+{txt}(525 missing values generated)
+
+{com}. sort alcoholic 
+{txt}
+{com}. egen N1=total(alcoholic) 
+{txt}
+{com}. egen nominator=total(att_psw) 
+{txt}
+{com}. scalar ATT_psw=nominator/N1
+{txt}
+{com}. gen ATT_psw=nominator/N1
+{txt}
+{com}. 
+. g ate_psw=hrwage*(alcoholic-pscore1)/(pscore1*(1-pscore1))
+{txt}(525 missing values generated)
+
+{com}. sort alcoholic
+{txt}
+{com}. gen N=4707
+{txt}
+{com}. capture drop nominator
+{txt}
+{com}. egen nominator=total(ate_psw) 
+{txt}
+{com}. scalar ATE_psw=nominator/N
+{txt}
+{com}. gen ATE_psw=nominator/N
+{txt}
+{com}. 
+. tabstat ATE_psw ATT_psw
+
+{txt}   stats {...}
+{c |}{...}
+   ATE_psw   ATT_psw
+{hline 9}{c +}{hline 20}
+{ralign 8:mean} {...}
+{c |}{...}
+ {res}-2.264761 -.9943998
+{txt}{hline 9}{c BT}{hline 20}
+
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Final Exam\Exercise2_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}22 May 2020, 18:44:26
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

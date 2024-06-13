@@ -1,0 +1,174 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Final Exam\Exercise1_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}22 May 2020, 18:42:50
+
+{com}. do "C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Final Exam\Exercise 1.do"
+{txt}
+{com}. xtset id year 
+{res}{txt}{col 8}panel variable:  {res}id (unbalanced)
+{txt}{col 9}time variable:  {res}{col 25}year, 89 to 94, but with gaps
+{txt}{col 17}delta:  {res}1 unit
+{txt}
+{com}. 
+. // Exercise 1b
+. xtdescribe
+
+      {txt}id:  {res}2{txt}, {res}3{txt}, ..., {res}12686                                  {txt}n ={res}       9894
+    {txt}year:  {res}89, 94, ..., 94                                   {txt}T ={res}          2
+           {txt}Delta(year) = {res}1 unit
+           {txt}Span(year)  = {res}6 periods
+           {txt}(id*year uniquely identifies each observation)
+
+Distribution of T_i:   min      5%     25%       50%       75%     95%     max
+                    {res}     1       1       1         2         2       2       2
+
+{txt}{col 6}Freq.  Percent    Cum. {c |}  Pattern*
+ {hline 27}{c +}{c -}{c -}{hline 8}
+{res}     6105     61.70   61.70{txt} {c |}  {res}11
+     3190     32.24   93.95{txt} {c |}  {res}1.
+      599      6.05  100.00{txt} {c |}  {res}.1
+{txt} {hline 27}{c +}{c -}{c -}{hline 8}
+{res}     9894    100.00        {txt} {c |}  {res}XX
+{txt} {hline 27}{c BT}{c -}{c -}{hline 8}
+ *Each column represents 5 periods.
+
+
+{com}. 
+. gen hour_wage= wgsal / hrswrk
+{txt}(2,046 missing values generated)
+
+{com}. gen loghrwage=ln(hour_wage)
+{txt}(2,756 missing values generated)
+
+{com}. summ loghrwage
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}loghrwage {c |}{res}     13,243      2.1019    .7632306  -7.640123   6.547606
+{txt}
+{com}. hist loghrwage
+{txt}(bin={res}41{txt}, start={res}-7.6401234{txt}, width={res}.34604218{txt})
+{res}{txt}
+{com}. 
+. xttab drnk6m
+
+                  {txt}Overall             Between            Within
+   drnk6m {c |}    Freq.  Percent      Freq.  Percent        Percent
+{hline 10}{c +}{hline 53}
+        0 {c |}{res}   10885     68.04      7692     77.74          89.55
+{txt}        1 {c |}{res}    1436      8.98      1335     13.49          62.96
+{txt}        2 {c |}{res}    1786     11.16      1608     16.25          65.36
+{txt}        3 {c |}{res}     827      5.17       772      7.80          61.33
+{txt}        4 {c |}{res}     347      2.17       336      3.40          61.31
+{txt}        5 {c |}{res}     155      0.97       149      1.51          60.74
+{txt}        6 {c |}{res}     563      3.52       501      5.06          68.76
+{txt}{hline 10}{c +}{hline 53}
+    Total {c |}{res}   15999    100.00     12393    125.26          79.84
+                              {txt}(n = {res}9894{txt})
+
+{com}. 
+. // Exercise 1e
+. gen faminc_1 = faminc/1000
+{txt}(2,724 missing values generated)
+
+{com}. gen logfaminc = ln(faminc_1)
+{txt}(2,903 missing values generated)
+
+{com}. 
+. xtreg loghrwage i.drnk6m health logfaminc povst urate, fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    11,100
+{txt}Group variable: {res}id{txt}{col 49}Number of groups{col 67}={col 69}{res}     7,667
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.2327{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.3292{col 63}{txt}avg{col 67}={col 69}{res}       1.4
+{txt}     overall = {res}0.3286{col 63}{txt}max{col 67}={col 69}{res}         2
+
+{txt}{col 49}F({res}10{txt},{res}3423{txt}){col 67}={col 70}{res}   103.81
+{txt}corr(u_i, Xb){col 16}= {res}0.1517{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   loghrwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}drnk6m {c |}
+{space 10}1  {c |}{col 14}{res}{space 2}-.0047489{col 26}{space 2} .0297106{col 37}{space 1}   -0.16{col 46}{space 3}0.873{col 54}{space 4}-.0630013{col 67}{space 3} .0535035
+{txt}{space 10}2  {c |}{col 14}{res}{space 2}-.0470142{col 26}{space 2} .0296082{col 37}{space 1}   -1.59{col 46}{space 3}0.112{col 54}{space 4}-.1050657{col 67}{space 3} .0110372
+{txt}{space 10}3  {c |}{col 14}{res}{space 2}-.0795864{col 26}{space 2} .0398664{col 37}{space 1}   -2.00{col 46}{space 3}0.046{col 54}{space 4}-.1577508{col 67}{space 3} -.001422
+{txt}{space 10}4  {c |}{col 14}{res}{space 2}-.0469254{col 26}{space 2} .0591661{col 37}{space 1}   -0.79{col 46}{space 3}0.428{col 54}{space 4}-.1629298{col 67}{space 3}  .069079
+{txt}{space 10}5  {c |}{col 14}{res}{space 2}-.0112692{col 26}{space 2}  .081398{col 37}{space 1}   -0.14{col 46}{space 3}0.890{col 54}{space 4}-.1708627{col 67}{space 3} .1483244
+{txt}{space 10}6  {c |}{col 14}{res}{space 2} .1441169{col 26}{space 2}   .05616{col 37}{space 1}    2.57{col 46}{space 3}0.010{col 54}{space 4} .0340063{col 67}{space 3} .2542275
+{txt}{space 12} {c |}
+{space 6}health {c |}{col 14}{res}{space 2} .0958279{col 26}{space 2} .0487168{col 37}{space 1}    1.97{col 46}{space 3}0.049{col 54}{space 4} .0003111{col 67}{space 3} .1913448
+{txt}{space 3}logfaminc {c |}{col 14}{res}{space 2} .3682156{col 26}{space 2} .0144592{col 37}{space 1}   25.47{col 46}{space 3}0.000{col 54}{space 4} .3398661{col 67}{space 3}  .396565
+{txt}{space 7}povst {c |}{col 14}{res}{space 2}-.0743844{col 26}{space 2} .0423623{col 37}{space 1}   -1.76{col 46}{space 3}0.079{col 54}{space 4}-.1574424{col 67}{space 3} .0086736
+{txt}{space 7}urate {c |}{col 14}{res}{space 2} .0286555{col 26}{space 2} .0037557{col 37}{space 1}    7.63{col 46}{space 3}0.000{col 54}{space 4} .0212918{col 67}{space 3} .0360192
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .7125999{col 26}{space 2} .0533659{col 37}{space 1}   13.35{col 46}{space 3}0.000{col 54}{space 4} .6079676{col 67}{space 3} .8172323
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .60240638
+     {txt}sigma_e {c |} {res} .47442376
+         {txt}rho {c |} {res}  .6171958{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}7666{txt}, {res}3423{txt}) = {res}1.92{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. // Exercise 1f
+. 
+. xtreg loghrwage i.drnk6m#sex health logfaminc povst urate, fe
+{p 0 6 2}{txt}note: 6.drnk6m#2.sex omitted because of collinearity{p_end}
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    11,100
+{txt}Group variable: {res}id{txt}{col 49}Number of groups{col 67}={col 69}{res}     7,667
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.2444{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.2129{col 63}{txt}avg{col 67}={col 69}{res}       1.4
+{txt}     overall = {res}0.2114{col 63}{txt}max{col 67}={col 69}{res}         2
+
+{txt}{col 49}F({res}16{txt},{res}3417{txt}){col 67}={col 70}{res}    69.08
+{txt}corr(u_i, Xb){col 16}= {res}-0.4102{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   loghrwage{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}drnk6m#sex {c |}
+{space 8}0 2  {c |}{col 14}{res}{space 2} -1.05168{col 26}{space 2} .1459217{col 37}{space 1}   -7.21{col 46}{space 3}0.000{col 54}{space 4}-1.337782{col 67}{space 3}-.7655773
+{txt}{space 8}1 1  {c |}{col 14}{res}{space 2}-.0368812{col 26}{space 2} .0372941{col 37}{space 1}   -0.99{col 46}{space 3}0.323{col 54}{space 4}-.1100023{col 67}{space 3} .0362398
+{txt}{space 8}1 2  {c |}{col 14}{res}{space 2}-.9964904{col 26}{space 2}  .149022{col 37}{space 1}   -6.69{col 46}{space 3}0.000{col 54}{space 4}-1.288672{col 67}{space 3}-.7043091
+{txt}{space 8}2 1  {c |}{col 14}{res}{space 2}-.0351456{col 26}{space 2} .0362783{col 37}{space 1}   -0.97{col 46}{space 3}0.333{col 54}{space 4}-.1062749{col 67}{space 3} .0359837
+{txt}{space 8}2 2  {c |}{col 14}{res}{space 2} -1.14589{col 26}{space 2} .1498968{col 37}{space 1}   -7.64{col 46}{space 3}0.000{col 54}{space 4}-1.439787{col 67}{space 3}-.8519937
+{txt}{space 8}3 1  {c |}{col 14}{res}{space 2} -.091506{col 26}{space 2} .0466562{col 37}{space 1}   -1.96{col 46}{space 3}0.050{col 54}{space 4}-.1829829{col 67}{space 3}-.0000291
+{txt}{space 8}3 2  {c |}{col 14}{res}{space 2} -1.07669{col 26}{space 2} .1511127{col 37}{space 1}   -7.13{col 46}{space 3}0.000{col 54}{space 4} -1.37297{col 67}{space 3}-.7804095
+{txt}{space 8}4 1  {c |}{col 14}{res}{space 2}-.0180536{col 26}{space 2} .0672477{col 37}{space 1}   -0.27{col 46}{space 3}0.788{col 54}{space 4}-.1499033{col 67}{space 3} .1137961
+{txt}{space 8}4 2  {c |}{col 14}{res}{space 2}-1.234331{col 26}{space 2} .1799174{col 37}{space 1}   -6.86{col 46}{space 3}0.000{col 54}{space 4}-1.587088{col 67}{space 3}-.8815747
+{txt}{space 8}5 1  {c |}{col 14}{res}{space 2}-.0610987{col 26}{space 2} .0902118{col 37}{space 1}   -0.68{col 46}{space 3}0.498{col 54}{space 4}-.2379732{col 67}{space 3} .1157758
+{txt}{space 8}5 2  {c |}{col 14}{res}{space 2}-.9821262{col 26}{space 2}  .233894{col 37}{space 1}   -4.20{col 46}{space 3}0.000{col 54}{space 4}-1.440712{col 67}{space 3}-.5235399
+{txt}{space 8}6 1  {c |}{col 14}{res}{space 2}-.0018617{col 26}{space 2} .0611681{col 37}{space 1}   -0.03{col 46}{space 3}0.976{col 54}{space 4}-.1217914{col 67}{space 3} .1180681
+{txt}{space 8}6 2  {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 12} {c |}
+{space 6}health {c |}{col 14}{res}{space 2} .0899802{col 26}{space 2} .0485332{col 37}{space 1}    1.85{col 46}{space 3}0.064{col 54}{space 4}-.0051769{col 67}{space 3} .1851374
+{txt}{space 3}logfaminc {c |}{col 14}{res}{space 2} .3678086{col 26}{space 2} .0143732{col 37}{space 1}   25.59{col 46}{space 3}0.000{col 54}{space 4} .3396277{col 67}{space 3} .3959895
+{txt}{space 7}povst {c |}{col 14}{res}{space 2}-.0859014{col 26}{space 2} .0421693{col 37}{space 1}   -2.04{col 46}{space 3}0.042{col 54}{space 4}-.1685809{col 67}{space 3}-.0032219
+{txt}{space 7}urate {c |}{col 14}{res}{space 2} .0289692{col 26}{space 2} .0037336{col 37}{space 1}    7.76{col 46}{space 3}0.000{col 54}{space 4} .0216489{col 67}{space 3} .0362895
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.216435{col 26}{space 2} .0856663{col 37}{space 1}   14.20{col 46}{space 3}0.000{col 54}{space 4} 1.048473{col 67}{space 3} 1.384397
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  .7048164
+     {txt}sigma_e {c |} {res} .47120171
+         {txt}rho {c |} {res} .69110753{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}7666{txt}, {res}3417{txt}) = {res}1.85{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Casa\OneDrive\Documentos\Economia Nova SBE\1st year\2º Semestre\Microeconometrics\Final Exam\Exercise1_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}22 May 2020, 18:43:02
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
